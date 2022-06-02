@@ -14,6 +14,7 @@
 		B5732766284911C80098BA47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5732764284911C80098BA47 /* LaunchScreen.storyboard */; };
 		B573278A28491D040098BA47 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B573278928491D040098BA47 /* README.md */; };
 		B573278C2849227D0098BA47 /* NewsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573278B2849227D0098BA47 /* NewsViewControllerTests.swift */; };
+		B573278F284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573278E284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		B573276C284911C80098BA47 /* NewsTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B573278928491D040098BA47 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B573278B2849227D0098BA47 /* NewsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewControllerTests.swift; sourceTree = "<group>"; };
+		B573278E284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +94,18 @@
 		B573276F284911C80098BA47 /* NewsTaskTests */ = {
 			isa = PBXGroup;
 			children = (
+				B573278D284928560098BA47 /* Helper */,
 				B573278B2849227D0098BA47 /* NewsViewControllerTests.swift */,
 			);
 			path = NewsTaskTests;
+			sourceTree = "<group>";
+		};
+		B573278D284928560098BA47 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B573278E284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B573278C2849227D0098BA47 /* NewsViewControllerTests.swift in Sources */,
+				B573278F284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
