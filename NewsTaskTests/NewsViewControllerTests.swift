@@ -6,19 +6,7 @@
 //
 
 import XCTest
-
-public struct NewImage {
-    let title: String
-    let author: String
-    let publishedAt: String
-    let image: URL
-}
-
-public protocol NewsLoader {
-    typealias Result = Swift.Result<[NewImage],Error>
-    
-    func load(completion: @escaping (Result) -> Void)
-}
+import NewsTask
 
 final class NewsViewController: UITableViewController {
     
