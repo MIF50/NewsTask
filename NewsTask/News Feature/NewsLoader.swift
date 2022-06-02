@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol NewsLoader {
-    typealias Result = Swift.Result<[NewImage],Error>
+    typealias Result = Swift.Result<[NewsImage],Error>
     
     func load(completion: @escaping (Result) -> Void)
 }

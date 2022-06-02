@@ -7,9 +7,10 @@
 
 import Foundation
 
-public struct NewImage {
+public struct NewsImage {
+    let source: String
     let title: String
-    let author: String
-    let publishedAt: String
-    let image: URL
+    let description: String?
+    let date: String
+    let image: URL?
 }
