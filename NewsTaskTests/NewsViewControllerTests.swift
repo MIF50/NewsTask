@@ -15,7 +15,7 @@ public struct NewImage {
 }
 
 public protocol NewsLoader {
-    typealias Result = Swift.Result<NewImage,Error>
+    typealias Result = Swift.Result<[NewImage],Error>
     
     func load(completion: @escaping (Result) -> Void)
 }
@@ -39,7 +39,9 @@ final class NewsViewController: UITableViewController {
     }
     
     @objc private func load() {
-        loader?.load { _ in }
+        loader?.load { [weak self] _ in
+            self?.refreshControl?.endRefreshing()
+        }
     }
 }
 
@@ -79,6 +81,15 @@ class NewsViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.refreshControl?.isRefreshing, true)
     }
     
+    func test_viewDidLoad_hidesLoadingIndicatorOnLoaderCompletion() {
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeNewsLoading()
+        
+        XCTAssertEqual(sut.refreshControl?.isRefreshing, false)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(
@@ -93,10 +104,18 @@ class NewsViewControllerTests: XCTestCase {
     }
     
     class LoaderSpy: NewsLoader {
-        private(set) var loadCallCount: Int = 0
+        private var completions = [(NewsLoader.Result) -> Void]()
+        
+        var loadCallCount: Int {
+            completions.count
+        }
         
         func load(completion: @escaping (NewsLoader.Result) -> Void) {
-            loadCallCount += 1
+            completions.append(completion)
+        }
+        
+        func completeNewsLoading() {
+            completions[0](.success([]))
         }
     }
 }
