@@ -39,7 +39,7 @@ final class NewsImageCellController: NewsImageView {
         cell?.titleLabel.text = viewModel.title
         cell?.sourceLabel.text = viewModel.source
         
-        cell?.newsImageView.image = viewModel.image
+        cell?.newsImageView.setImageAnimated(viewModel.image)
         cell?.newsImageContainer.isShimmering = viewModel.isLoading
         cell?.newsImageRetryButton.isHidden = !viewModel.shouldRetry
         

@@ -36,6 +36,7 @@
 		B57327C5284A74800098BA47 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C4284A74800098BA47 /* NewsPresenter.swift */; };
 		B57327C7284AA0CD0098BA47 /* NewsImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */; };
 		B57327C9284AAC860098BA47 /* UITableView+Dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C8284AAC860098BA47 /* UITableView+Dequeueing.swift */; };
+		B57327CB284AAE9C0098BA47 /* UIImage+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327CA284AAE9C0098BA47 /* UIImage+Animations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		B57327C4284A74800098BA47 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
 		B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImagePresenter.swift; sourceTree = "<group>"; };
 		B57327C8284AAC860098BA47 /* UITableView+Dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeueing.swift"; sourceTree = "<group>"; };
+		B57327CA284AAE9C0098BA47 /* UIImage+Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Animations.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				B573279A2849E2A60098BA47 /* UIView+Shimmering.swift */,
 				B57327982849D8220098BA47 /* NewsImageCell.swift */,
 				B57327C8284AAC860098BA47 /* UITableView+Dequeueing.swift */,
+				B57327CA284AAE9C0098BA47 /* UIImage+Animations.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				B573279B2849E2A60098BA47 /* UIView+Shimmering.swift in Sources */,
 				B573275A284911C60098BA47 /* AppDelegate.swift in Sources */,
 				B57327992849D8220098BA47 /* NewsImageCell.swift in Sources */,
+				B57327CB284AAE9C0098BA47 /* UIImage+Animations.swift in Sources */,
 				B57327C3284A6DB30098BA47 /* NewsImageViewModel.swift in Sources */,
 				B573275C284911C60098BA47 /* SceneDelegate.swift in Sources */,
 				B57327BB2849F5DF0098BA47 /* NewsImageCellController.swift in Sources */,
