@@ -10,14 +10,14 @@ import UIKit
 final class NewsRefreshController: NSObject, NewsLoadingView {
     private(set) lazy var view = loadView()
     
-    private let presenter: NewsPresenter
+    private let loadNews: () -> Void
     
-    init(presenter: NewsPresenter) {
-        self.presenter = presenter
+    init(loadNews:@escaping () -> Void) {
+        self.loadNews = loadNews
     }
         
     @objc func refresh() {
-        presenter.loadNews()
+        loadNews()
     }
     
     func display(_ viewModel: NewsLoadingViewModel) {
