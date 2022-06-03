@@ -7,37 +7,59 @@
 
 import UIKit
 
+final class NewsRefreshController: NSObject {
+    private(set) lazy var view: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return view
+    }()
+    
+    private let newsLoader: NewsLoader
+    
+    init(newsLoader: NewsLoader) {
+        self.newsLoader = newsLoader
+    }
+    
+    var onRefresh: (([NewsImage]) -> Void)?
+    
+    @objc func refresh() {
+        view.beginRefreshing()
+        newsLoader.load { [weak self] result in
+            if let news = try? result.get() {
+                self?.onRefresh?(news)
+            }
+            self?.view.endRefreshing()
+        }
+    }
+    
+}
+
 final public class NewsViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
-    private var newsLoader: NewsLoader?
+    private var refreshController: NewsRefreshController?
     private var imageLoader: NewsImageDataLoader?
-    private var tableModel = [NewsImage]()
+    private var tableModel = [NewsImage]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     private var tasks = [IndexPath: NewsImageDataLoaderTask]()
     
     public convenience init(newsLoader: NewsLoader,imageLoader: NewsImageDataLoader) {
         self.init()
-        self.newsLoader = newsLoader
+        self.refreshController = NewsRefreshController(newsLoader: newsLoader)
         self.imageLoader = imageLoader
     }
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(load), for: .valueChanged)
         tableView.prefetchDataSource = self
-        load()
-    }
-    
-    @objc private func load() {
-        refreshControl?.beginRefreshing()
-        newsLoader?.load { [weak self] result in
-            if let news = try? result.get() {
-                self?.tableModel = news
-                self?.tableView.reloadData()
-            }
-            self?.refreshControl?.endRefreshing()
+        refreshControl = refreshController?.view
+        refreshController?.onRefresh = { [weak self] news in
+            self?.tableModel = news
         }
+        refreshController?.refresh()
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
