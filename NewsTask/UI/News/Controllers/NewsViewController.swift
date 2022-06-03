@@ -7,19 +7,16 @@
 
 import UIKit
 
-final public class NewsViewController: UITableViewController, UITableViewDataSourcePrefetching {
+public final class NewsViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
     private var refreshController: NewsRefreshController?
-    private var imageLoader: NewsImageDataLoader?
-    private var tableModel = [NewsImage]() {
+    var tableModel = [NewsImageCellController]() {
         didSet { tableView.reloadData() }
     }
-    private var cellControllers = [IndexPath: NewsImageCellController]()
     
-    public convenience init(newsLoader: NewsLoader,imageLoader: NewsImageDataLoader) {
+    convenience init(refreshController: NewsRefreshController) {
         self.init()
-        self.refreshController = NewsRefreshController(newsLoader: newsLoader)
-        self.imageLoader = imageLoader
+        self.refreshController = refreshController
     }
     
     public override func viewDidLoad() {
@@ -27,9 +24,6 @@ final public class NewsViewController: UITableViewController, UITableViewDataSou
         
         tableView.prefetchDataSource = self
         refreshControl = refreshController?.view
-        refreshController?.onRefresh = { [weak self] news in
-            self?.tableModel = news
-        }
         refreshController?.refresh()
     }
     
@@ -48,22 +42,19 @@ final public class NewsViewController: UITableViewController, UITableViewDataSou
     }
     
     public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        removeCellController(forRowAt: indexPath)
+        cancelCellControllerLoad(forRowAt: indexPath)
     }
     
     public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach(removeCellController(forRowAt:))
+        indexPaths.forEach(cancelCellControllerLoad(forRowAt:))
     }
     
     
     private func cellController(forRowAt indexPath: IndexPath) -> NewsImageCellController {
-            let cellModel = tableModel[indexPath.row]
-            let cellController = NewsImageCellController(model: cellModel, imageLoader: imageLoader!)
-            cellControllers[indexPath] = cellController
-            return cellController
-        }
-
-        private func removeCellController(forRowAt indexPath: IndexPath) {
-            cellControllers[indexPath] = nil
-        }
+        return tableModel[indexPath.row]
+    }
+    
+    private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
+        cellController(forRowAt: indexPath).cancelLoad()
+    }
 }
