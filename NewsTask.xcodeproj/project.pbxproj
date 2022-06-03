@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				B573278D284928560098BA47 /* Helper */,
-				B573278B2849227D0098BA47 /* NewsViewControllerTests.swift */,
+				B57327B52849EFB00098BA47 /* UI */,
 			);
 			path = NewsTaskTests;
 			sourceTree = "<group>";
@@ -139,10 +139,6 @@
 				B57327A42849ECB60098BA47 /* UIRefreshController+TestHelpers.swift */,
 				B57327A62849ECF10098BA47 /* UIButton+TestHelpers.swift */,
 				B57327A82849ED390098BA47 /* UIControl+TestHelpers.swift */,
-				B57327AB2849EE020098BA47 /* NewsViewController+TestHelpers.swift */,
-				B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */,
-				B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */,
-				B57327B12849EF240098BA47 /* NewsViewController+Assertions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -196,6 +192,34 @@
 				B57327A02849EC110098BA47 /* NewsImageDataLoader.swift */,
 			);
 			path = "News Image Loader";
+			sourceTree = "<group>";
+		};
+		B57327B52849EFB00098BA47 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B57327B62849EFBD0098BA47 /* News */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B57327B62849EFBD0098BA47 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				B57327B72849EFCF0098BA47 /* Helpers */,
+				B573278B2849227D0098BA47 /* NewsViewControllerTests.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		B57327B72849EFCF0098BA47 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B57327AB2849EE020098BA47 /* NewsViewController+TestHelpers.swift */,
+				B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */,
+				B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */,
+				B57327B12849EF240098BA47 /* NewsViewController+Assertions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
