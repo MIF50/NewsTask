@@ -13,6 +13,16 @@ public final class NewsImageCell: UITableViewCell {
     public let titleLabel: UILabel = UILabel()
     public let newsImageContainer: UIView = UIView()
     public let newsImageView = UIImageView()
-    public let newsImageRetryButton = UIButton()
     
+    private(set) public lazy var newsImageRetryButton: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(retryButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
+    var onRetry: (() -> Void)?
+    
+    @objc private func retryButtonTapped() {
+        onRetry?()
+    }
 }

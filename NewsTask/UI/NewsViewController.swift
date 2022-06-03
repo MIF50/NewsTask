@@ -61,14 +61,19 @@ final public class NewsViewController: UITableViewController {
         cell.newsImageView.image = nil
         cell.newsImageRetryButton.isHidden = true
         cell.newsImageContainer.startShimmering()
-        tasks[indexPath] = imageLoader?.loadImageData(from: cellModel.url) { [weak cell] result in
-            let data = try? result.get()
-            let image = data.map(UIImage.init) ?? nil
-            cell?.newsImageView.image = image
-            cell?.newsImageRetryButton.isHidden = (image != nil)
-            cell?.newsImageContainer.stopShimmering()
+        let loadImage = { [weak self, weak cell] in
+            guard let self = self else { return }
             
+            self.tasks[indexPath] = self.imageLoader?.loadImageData(from: cellModel.url) { [weak cell] result in
+                let data = try? result.get()
+                let image = data.map(UIImage.init) ?? nil
+                cell?.newsImageView.image = image
+                cell?.newsImageRetryButton.isHidden = (image != nil)
+                cell?.newsImageContainer.stopShimmering()
+            }
         }
+        cell.onRetry = loadImage
+        loadImage()
         return cell
     }
     
