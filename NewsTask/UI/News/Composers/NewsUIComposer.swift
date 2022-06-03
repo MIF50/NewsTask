@@ -17,7 +17,7 @@ public final class NewsUIComposer {
     ) -> NewsViewController {
         let presenter = NewsPresenter()
         let presentationAdapter = NewsPresentationAdapter(newsLoader: newsLoader, presenter: presenter)
-        let refreshController = NewsRefreshController(loadNews: presentationAdapter.loadNews)
+        let refreshController = NewsRefreshController(delegate: presentationAdapter)
         let newsController = NewsViewController(refreshController: refreshController)
         presenter.loadingView = WeakVirtualProxy(refreshController)
         presenter.newsView = NewsViewAdapter(controller: newsController, imageLoader: imageLoader)
@@ -74,7 +74,7 @@ final class NewsViewAdapter: NewsView {
     }
 }
 
-final class NewsPresentationAdapter {
+final class NewsPresentationAdapter: NewsRefreshViewControllerDelegate {
     private let newsLoader: NewsLoader
     private let presenter: NewsPresenter
     
@@ -83,7 +83,7 @@ final class NewsPresentationAdapter {
         self.presenter = presenter
     }
     
-    func loadNews() {
+    func didRequestNewsRefresh() {
         presenter.didStartLoadingNews()
         
         newsLoader.load { [weak self] result in
