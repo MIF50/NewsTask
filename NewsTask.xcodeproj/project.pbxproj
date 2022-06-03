@@ -28,6 +28,7 @@
 		B57327AC2849EE020098BA47 /* NewsViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327AB2849EE020098BA47 /* NewsViewController+TestHelpers.swift */; };
 		B57327AE2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */; };
 		B57327B02849EED70098BA47 /* NewsViewController+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */; };
+		B57327B22849EF240098BA47 /* NewsViewController+Assertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327B12849EF240098BA47 /* NewsViewController+Assertions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		B57327AB2849EE020098BA47 /* NewsViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
 		B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsViewController+LoaderSpy.swift"; sourceTree = "<group>"; };
+		B57327B12849EF240098BA47 /* NewsViewController+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsViewController+Assertions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				B57327AB2849EE020098BA47 /* NewsViewController+TestHelpers.swift */,
 				B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */,
 				B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */,
+				B57327B12849EF240098BA47 /* NewsViewController+Assertions.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				B57327A72849ECF10098BA47 /* UIButton+TestHelpers.swift in Sources */,
 				B573278F284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				B57327A92849ED390098BA47 /* UIControl+TestHelpers.swift in Sources */,
+				B57327B22849EF240098BA47 /* NewsViewController+Assertions.swift in Sources */,
 				B57327B02849EED70098BA47 /* NewsViewController+LoaderSpy.swift in Sources */,
 				B57327A32849EC6E0098BA47 /* UIImage+TestHelpers.swift in Sources */,
 				B57327A52849ECB60098BA47 /* UIRefreshController+TestHelpers.swift in Sources */,
