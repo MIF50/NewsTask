@@ -24,6 +24,7 @@
 		B57327A32849EC6E0098BA47 /* UIImage+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327A22849EC6E0098BA47 /* UIImage+TestHelpers.swift */; };
 		B57327A52849ECB60098BA47 /* UIRefreshController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327A42849ECB60098BA47 /* UIRefreshController+TestHelpers.swift */; };
 		B57327A72849ECF10098BA47 /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327A62849ECF10098BA47 /* UIButton+TestHelpers.swift */; };
+		B57327A92849ED390098BA47 /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327A82849ED390098BA47 /* UIControl+TestHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B57327A22849EC6E0098BA47 /* UIImage+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TestHelpers.swift"; sourceTree = "<group>"; };
 		B57327A42849ECB60098BA47 /* UIRefreshController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshController+TestHelpers.swift"; sourceTree = "<group>"; };
 		B57327A62849ECF10098BA47 /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
+		B57327A82849ED390098BA47 /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				B57327A22849EC6E0098BA47 /* UIImage+TestHelpers.swift */,
 				B57327A42849ECB60098BA47 /* UIRefreshController+TestHelpers.swift */,
 				B57327A62849ECF10098BA47 /* UIButton+TestHelpers.swift */,
+				B57327A82849ED390098BA47 /* UIControl+TestHelpers.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				B573278C2849227D0098BA47 /* NewsViewControllerTests.swift in Sources */,
 				B57327A72849ECF10098BA47 /* UIButton+TestHelpers.swift in Sources */,
 				B573278F284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				B57327A92849ED390098BA47 /* UIControl+TestHelpers.swift in Sources */,
 				B57327A32849EC6E0098BA47 /* UIImage+TestHelpers.swift in Sources */,
 				B57327A52849ECB60098BA47 /* UIRefreshController+TestHelpers.swift in Sources */,
 			);
