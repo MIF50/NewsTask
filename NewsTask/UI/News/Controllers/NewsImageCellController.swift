@@ -7,45 +7,41 @@
 
 import UIKit
 
-final class NewsImageCellController {
+protocol NewsImageCellControllerDelegate {
+    func didRequestImage()
+    func didCancelImageRequest()
+}
+
+final class NewsImageCellController: NewsImageView {
+    private let delegate: NewsImageCellControllerDelegate
+    let cell = NewsImageCell()
     
-    private let viewModel: NewsImageViewModel<UIImage>
-    
-    init(viewModel: NewsImageViewModel<UIImage>) {
-        self.viewModel = viewModel
+    init(delegate: NewsImageCellControllerDelegate) {
+        self.delegate = delegate
     }
     
     func view() -> UITableViewCell {
-        let cell = binded(NewsImageCell())
-        viewModel.LoadImageData()
+        delegate.didRequestImage()
         return cell
     }
     
     func preload() {
-        viewModel.LoadImageData()
+        delegate.didRequestImage()
     }
     
     func cancelLoad() {
-        viewModel.cancelImageDataLoad()
+        delegate.didCancelImageRequest()
     }
     
-    private func binded(_ cell: NewsImageCell) -> NewsImageCell {
+    func display(_ viewModel: NewsImageViewModel<UIImage>) {
         cell.titleLabel.text = viewModel.title
         cell.sourceLabel.text = viewModel.source
-        cell.onRetry = viewModel.LoadImageData
         
-        viewModel.onImageLoad = { [weak cell] image in
-            cell?.newsImageView.image = image
-        }
+        cell.newsImageView.image = viewModel.image
+        cell.newsImageContainer.isShimmering = viewModel.isLoading
+        cell.newsImageRetryButton.isHidden = !viewModel.shouldRetry
         
-        viewModel.onImageLoadingStateChange = { [weak cell] isLoading in
-            cell?.newsImageContainer.isShimmering = isLoading
-        }
-        
-        viewModel.onShouldRetryImageLoadingStateChange = { [weak cell] shouldRetry in
-            cell?.newsImageRetryButton.isHidden = !shouldRetry
-        }
-        return cell
+        cell.onRetry = delegate.didRequestImage
     }
 }
 

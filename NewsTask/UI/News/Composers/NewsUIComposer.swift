@@ -21,28 +21,13 @@ public final class NewsUIComposer {
         let newsViewAdapter = NewsViewAdapter(controller: newsController, imageLoader: imageLoader)
         presentationAdapter.presenter = NewsPresenter(
             newsView: newsViewAdapter,
-            loadingView: WeakVirtualProxy(refreshController)
+            loadingView: WeakRefVirtualProxy(refreshController)
         )
         return newsController
     }
-    
-    private static func adaptNewsToCellController(
-        forwardingTo controller: NewsViewController,
-        loader: NewsImageDataLoader
-    ) -> ([NewsImage]) -> Void {
-        return { [weak controller] news in
-            controller?.tableModel = news.map { model in
-                NewsImageCellController(viewModel: NewsImageViewModel(
-                    model: model,
-                    imageLoader: loader,
-                    imageTransformer: UIImage.init
-                ))
-            }
-        }
-    }
 }
 
-private final class WeakVirtualProxy<T: AnyObject> {
+private final class WeakRefVirtualProxy<T: AnyObject> {
     private weak var object: T?
     
     init(_ object: T) {
@@ -50,15 +35,21 @@ private final class WeakVirtualProxy<T: AnyObject> {
     }
 }
 
-extension WeakVirtualProxy: NewsLoadingView where T: NewsLoadingView {
+extension WeakRefVirtualProxy: NewsLoadingView where T: NewsLoadingView {
     func display(_ viewModel: NewsLoadingViewModel) {
         object?.display(viewModel)
     }
 }
 
+extension WeakRefVirtualProxy: NewsImageView where T: NewsImageView, T.Image == UIImage {
+    func display(_ model: NewsImageViewModel<UIImage>) {
+        object?.display(model)
+    }
+}
+
 final class NewsViewAdapter: NewsView {
-    private weak var controller:NewsViewController?
-    private let imageLoader:NewsImageDataLoader
+    private weak var controller: NewsViewController?
+    private let imageLoader: NewsImageDataLoader
     
     init(controller: NewsViewController,imageLoader: NewsImageDataLoader) {
         self.controller = controller
@@ -67,11 +58,15 @@ final class NewsViewAdapter: NewsView {
     
     func display(_ viewModel: NewsViewModel) {
         controller?.tableModel = viewModel.news.map { model in
-            NewsImageCellController(viewModel: NewsImageViewModel(
-                model: model,
-                imageLoader: imageLoader,
+            let adapter = NewsImageDataLoaderPresentationAdapter<WeakRefVirtualProxy<NewsImageCellController>, UIImage>(model: model, imageLoader: imageLoader)
+            let view = NewsImageCellController(delegate: adapter)
+            
+            adapter.presenter = NewsImagePresenter(
+                view: WeakRefVirtualProxy(view),
                 imageTransformer: UIImage.init
-            ))
+            )
+            
+            return view
         }
     }
 }
@@ -95,5 +90,37 @@ final class NewsPresentationAdapter: NewsRefreshViewControllerDelegate {
                 self?.presenter?.didFinishLoadingNews(with: error)
             }
         }
+    }
+}
+
+private final class NewsImageDataLoaderPresentationAdapter<View: NewsImageView, Image>: NewsImageCellControllerDelegate where View.Image == Image {
+    private let model: NewsImage
+    private let imageLoader: NewsImageDataLoader
+    private var task: NewsImageDataLoaderTask?
+    
+    var presenter: NewsImagePresenter<View, Image>?
+    
+    init(model: NewsImage, imageLoader: NewsImageDataLoader) {
+        self.model = model
+        self.imageLoader = imageLoader
+    }
+    
+    func didRequestImage() {
+        presenter?.didStartLoadingImageData(for: model)
+        
+        let model = self.model
+        task = imageLoader.loadImageData(from: model.url) { [weak self] result in
+            switch result {
+            case let .success(data):
+                self?.presenter?.didFinishLoadingImageData(with: data, for: model)
+                
+            case let .failure(error):
+                self?.presenter?.didFinishLoadingImageData(with: error, for: model)
+            }
+        }
+    }
+    
+    func didCancelImageRequest() {
+        task?.cancel()
     }
 }

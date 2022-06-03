@@ -34,6 +34,7 @@
 		B57327BE284A16E20098BA47 /* NewsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327BD284A16E20098BA47 /* NewsUIComposer.swift */; };
 		B57327C3284A6DB30098BA47 /* NewsImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */; };
 		B57327C5284A74800098BA47 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C4284A74800098BA47 /* NewsPresenter.swift */; };
+		B57327C7284AA0CD0098BA47 /* NewsImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		B57327BD284A16E20098BA47 /* NewsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUIComposer.swift; sourceTree = "<group>"; };
 		B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageViewModel.swift; sourceTree = "<group>"; };
 		B57327C4284A74800098BA47 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
+		B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImagePresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			children = (
 				B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */,
 				B57327C4284A74800098BA47 /* NewsPresenter.swift */,
+				B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */,
 			);
 			path = "News Presentation";
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57327C7284AA0CD0098BA47 /* NewsImagePresenter.swift in Sources */,
 				B57327A12849EC110098BA47 /* NewsImageDataLoader.swift in Sources */,
 				B573275E284911C60098BA47 /* ViewController.swift in Sources */,
 				B573279B2849E2A60098BA47 /* UIView+Shimmering.swift in Sources */,
