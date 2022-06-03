@@ -9,26 +9,24 @@ import Foundation
 
 class NewsViewModel {
     
+    typealias Observer<T> = (T) -> Void
+    
     private let newsLoader: NewsLoader
     
     init(newsLoader: NewsLoader) {
         self.newsLoader = newsLoader
     }
     
-    var onChange: ((NewsViewModel) -> Void)?
-    var onLoadNews: (([NewsImage]) -> Void)?
-    
-    private(set) var isLoading: Bool = false {
-        didSet { onChange?(self) }
-    }
+    var onLoadingStateChange: Observer<Bool>?
+    var onLoadNews: Observer<[NewsImage]>?
     
     func loadNews() {
-        isLoading = true
+        onLoadingStateChange?(true)
         newsLoader.load { [weak self] result in
             if let news = try? result.get() {
                 self?.onLoadNews?(news)
             }
-            self?.isLoading = false
+            self?.onLoadingStateChange?(false)
         }
     }
 }
