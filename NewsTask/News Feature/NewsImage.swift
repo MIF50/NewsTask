@@ -8,9 +8,17 @@
 import Foundation
 
 public struct NewsImage {
-    let source: String
-    let title: String
-    let description: String?
-    let date: String
-    let image: URL?
+    public let source: String
+    public let title: String
+    public let description: String?
+    public let date: Date
+    public let url: URL
+    
+    public init(source: String,title: String,description: String?, date: Date,url: URL) {
+        self.source = source
+        self.title = title
+        self.description = description
+        self.date = date
+        self.url = url
+    }
 }

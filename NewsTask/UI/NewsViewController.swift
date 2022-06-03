@@ -10,6 +10,7 @@ import UIKit
 final public class NewsViewController: UITableViewController {
     
     private var loader: NewsLoader?
+    private var tableModel = [NewsImage]()
     
     public convenience init(loader: NewsLoader) {
         self.init()
@@ -26,8 +27,22 @@ final public class NewsViewController: UITableViewController {
     
     @objc private func load() {
         refreshControl?.beginRefreshing()
-        loader?.load { [weak self] _ in
+        loader?.load { [weak self] result in
+            self?.tableModel = (try? result.get()) ?? []
+            self?.tableView.reloadData()
             self?.refreshControl?.endRefreshing()
         }
+    }
+    
+    public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableModel.count
+    }
+    
+    public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellModel = tableModel[indexPath.row]
+        let cell = NewsImageCell()
+        cell.titleLabel.text = cellModel.title
+        cell.sourceLabel.text = cellModel.source
+        return cell
     }
 }

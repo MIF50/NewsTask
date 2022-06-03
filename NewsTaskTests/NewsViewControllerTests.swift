@@ -40,6 +40,24 @@ class NewsViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once user initiated loading is completed")
     }
     
+    func test_loadNewsCompletion_rendersSuccessfullyLoadedNews() {
+        let image0 = makeImage(source: "a source", title: "a title")
+        let image1 = makeImage(source: "another source", title: "another title")
+        let image2 = makeImage(source: "any another source", title: "any another title")
+        let image3 = makeImage(source: "source", title: "title")
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        assertThat(sut, isRendering: [])
+        
+        loader.completeNewsLoading(with: [image0], at: 0)
+        assertThat(sut, isRendering: [image0])
+        
+        sut.simulateUserInitiatedNewsReload()
+        loader.completeNewsLoading(with: [image0, image1, image2, image3], at: 1)
+        assertThat(sut, isRendering: [image0, image1, image2, image3])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(
@@ -53,6 +71,49 @@ class NewsViewControllerTests: XCTestCase {
         return (sut, loader)
     }
     
+    private func assertThat(
+        _ sut: NewsViewController,
+        isRendering news: [NewsImage],
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+        guard sut.numberOfRenderedNewsImageViews() == news.count else {
+            return XCTFail("Expected \(news.count) images, got \(sut.numberOfRenderedNewsImageViews()) instead.", file: file, line: line)
+        }
+        
+        news.enumerated().forEach { index, image in
+            assertThat(sut, hasViewConfiguredFor: image, at: index, file: file, line: line)
+        }
+    }
+    
+    private func assertThat(
+        _ sut: NewsViewController,
+        hasViewConfiguredFor image: NewsImage,
+        at index: Int,
+        file: StaticString = #file,
+        line: UInt = #line
+    ) {
+        let view = sut.newsImageView(at: index)
+        
+        guard let cell = view as? NewsImageCell else {
+            return XCTFail("Expected \(NewsImageCell.self) instance, got \(String(describing: view)) instead", file: file, line: line)
+        }
+        
+        XCTAssertEqual(cell.sourceText, image.source, "Expected source text to be \(String(describing: image.source)) for image view at index (\(index))", file: file, line: line)
+        
+        XCTAssertEqual(cell.titleText, image.title, "Expected title text to be \(String(describing: image.description)) for image view at index (\(index)", file: file, line: line)
+    }
+    
+    private func makeImage(
+        source: String = "a source",
+        title: String = "a title",
+        description: String? = nil,
+        date: Date = Date(),
+        url: URL = URL(string: "http://any-url.com")!
+    ) -> NewsImage {
+        NewsImage(source: source, title: title, description: description, date: date, url: url)
+    }
+    
     class LoaderSpy: NewsLoader {
         private var completions = [(NewsLoader.Result) -> Void]()
         
@@ -64,8 +125,8 @@ class NewsViewControllerTests: XCTestCase {
             completions.append(completion)
         }
         
-        func completeNewsLoading(at index: Int) {
-            completions[index](.success([]))
+        func completeNewsLoading(with news:[NewsImage] = [],at index: Int) {
+            completions[index](.success(news))
         }
     }
 }
@@ -77,6 +138,30 @@ private extension NewsViewController {
     
     var isShowingLoadingIndicator: Bool {
         return refreshControl?.isRefreshing == true
+    }
+    
+    func numberOfRenderedNewsImageViews() -> Int {
+        return tableView.numberOfRows(inSection: newsImagesSection)
+    }
+    
+    func newsImageView(at row: Int) -> UITableViewCell? {
+        let ds = tableView.dataSource
+        let index = IndexPath(row: row, section: newsImagesSection)
+        return ds?.tableView(tableView, cellForRowAt: index)
+    }
+    
+    private var newsImagesSection: Int {
+        return 0
+    }
+}
+
+private extension NewsImageCell {
+    var sourceText: String? {
+        return sourceLabel.text
+    }
+
+    var titleText: String? {
+        return titleLabel.text
     }
 }
 
