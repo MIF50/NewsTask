@@ -15,10 +15,11 @@ public final class NewsUIComposer {
         newsLoader: NewsLoader,
         imageLoader: NewsImageDataLoader
     ) -> NewsViewController {
-        let viewModel = NewsViewModel(newsLoader: newsLoader)
-        let refreshController = NewsRefreshController(viewModel: viewModel)
+        let presenter = NewsPresenter(newsLoader: newsLoader)
+        let refreshController = NewsRefreshController(presenter: presenter)
         let newsController = NewsViewController(refreshController: refreshController)
-        viewModel.onLoadNews = adaptNewsToCellController(forwardingTo: newsController, loader: imageLoader)
+        presenter.loadingView = WeakVirtualProxy(refreshController)
+        presenter.newsView = NewsViewAdapter(controller: newsController, imageLoader: imageLoader)
         return newsController
     }
     
@@ -34,6 +35,40 @@ public final class NewsUIComposer {
                     imageTransformer: UIImage.init
                 ))
             }
+        }
+    }
+}
+
+private final class WeakVirtualProxy<T: AnyObject> {
+    private weak var object: T?
+    
+    init(_ object: T) {
+        self.object = object
+    }
+}
+
+extension WeakVirtualProxy: NewsLoadingView where T: NewsLoadingView {
+    func display(isLoading: Bool) {
+        object?.display(isLoading: isLoading)
+    }
+}
+
+final class NewsViewAdapter: NewsView {
+    private weak var controller:NewsViewController?
+    private let imageLoader:NewsImageDataLoader
+    
+    init(controller: NewsViewController,imageLoader: NewsImageDataLoader) {
+        self.controller = controller
+        self.imageLoader = imageLoader
+    }
+    
+    func display(news: [NewsImage]) {
+        controller?.tableModel = news.map { model in
+            NewsImageCellController(viewModel: NewsImageViewModel(
+                model: model,
+                imageLoader: imageLoader,
+                imageTransformer: UIImage.init
+            ))
         }
     }
 }
