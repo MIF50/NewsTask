@@ -5,19 +5,21 @@
 //  Created by Mohamed Ibrahim on 03/06/2022.
 //
 
-import UIKit
+import Foundation
 
-final class NewsImageViewModel {
+final class NewsImageViewModel<Image> {
     
     typealias Observer<T> = (T) -> Void
     
     private var task: NewsImageDataLoaderTask?
     private let model: NewsImage
     private let imageLoader: NewsImageDataLoader
+    private let imageTransformer: (Data) -> Image?
     
-    init(model: NewsImage,imageLoader: NewsImageDataLoader) {
+    init(model: NewsImage,imageLoader: NewsImageDataLoader,imageTransformer: @escaping ((Data) -> Image?)) {
         self.model = model
         self.imageLoader = imageLoader
+        self.imageTransformer = imageTransformer
     }
     
     var title: String {
@@ -28,7 +30,7 @@ final class NewsImageViewModel {
         model.source
     }
     
-    var onImageLoad: Observer<UIImage>?
+    var onImageLoad: Observer<Image>?
     var onImageLoadingStateChange: Observer<Bool>?
     var onShouldRetryImageLoadingStateChange: Observer<Bool>?
     
@@ -41,7 +43,7 @@ final class NewsImageViewModel {
     }
     
     private func handle(_ result: NewsImageDataLoader.Result) {
-        if let image = (try? result.get()).flatMap(UIImage.init) {
+        if let image = (try? result.get()).flatMap(imageTransformer) {
             onImageLoad?(image)
         } else {
             onShouldRetryImageLoadingStateChange?(true)
