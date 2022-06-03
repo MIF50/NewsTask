@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct NewsImage {
+public struct NewsImage: Equatable {
     public let source: String
     public let title: String
     public let description: String?
