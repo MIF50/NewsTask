@@ -15,8 +15,9 @@ public final class NewsUIComposer {
         newsLoader: NewsLoader,
         imageLoader: NewsImageDataLoader
     ) -> NewsViewController {
-        let presenter = NewsPresenter(newsLoader: newsLoader)
-        let refreshController = NewsRefreshController(loadNews: presenter.loadNews)
+        let presenter = NewsPresenter()
+        let presentationAdapter = NewsPresentationAdapter(newsLoader: newsLoader, presenter: presenter)
+        let refreshController = NewsRefreshController(loadNews: presentationAdapter.loadNews)
         let newsController = NewsViewController(refreshController: refreshController)
         presenter.loadingView = WeakVirtualProxy(refreshController)
         presenter.newsView = NewsViewAdapter(controller: newsController, imageLoader: imageLoader)
@@ -69,6 +70,29 @@ final class NewsViewAdapter: NewsView {
                 imageLoader: imageLoader,
                 imageTransformer: UIImage.init
             ))
+        }
+    }
+}
+
+final class NewsPresentationAdapter {
+    private let newsLoader: NewsLoader
+    private let presenter: NewsPresenter
+    
+    init(newsLoader: NewsLoader,presenter: NewsPresenter) {
+        self.newsLoader = newsLoader
+        self.presenter = presenter
+    }
+    
+    func loadNews() {
+        presenter.didStartLoadingNews()
+        
+        newsLoader.load { [weak self] result in
+            switch result {
+            case let .success(news):
+                self?.presenter.didFinishLoadingNews(with: news)
+            case let .failure(error):
+                self?.presenter.didFinishLoadingNews(with: error)
+            }
         }
     }
 }
