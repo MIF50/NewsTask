@@ -21,10 +21,9 @@ final class NewsImageCellController: NewsImageView {
     }
     
     func view(in tableView: UITableView) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsImageCell") as! NewsImageCell
-        self.cell = cell
+        cell = tableView.dequeueReusableCell()
         delegate.didRequestImage()
-        return cell
+        return cell!
     }
     
     func preload() {
@@ -32,7 +31,7 @@ final class NewsImageCellController: NewsImageView {
     }
     
     func cancelLoad() {
-        cell = nil
+        releaseCellForReuse()
         delegate.didCancelImageRequest()
     }
     
@@ -45,6 +44,10 @@ final class NewsImageCellController: NewsImageView {
         cell?.newsImageRetryButton.isHidden = !viewModel.shouldRetry
         
         cell?.onRetry = delegate.didRequestImage
+    }
+    
+    private func releaseCellForReuse() {
+        cell = nil
     }
 }
 

@@ -35,6 +35,7 @@
 		B57327C3284A6DB30098BA47 /* NewsImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */; };
 		B57327C5284A74800098BA47 /* NewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C4284A74800098BA47 /* NewsPresenter.swift */; };
 		B57327C7284AA0CD0098BA47 /* NewsImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */; };
+		B57327C9284AAC860098BA47 /* UITableView+Dequeueing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C8284AAC860098BA47 /* UITableView+Dequeueing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageViewModel.swift; sourceTree = "<group>"; };
 		B57327C4284A74800098BA47 /* NewsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresenter.swift; sourceTree = "<group>"; };
 		B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImagePresenter.swift; sourceTree = "<group>"; };
+		B57327C8284AAC860098BA47 /* UITableView+Dequeueing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dequeueing.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				B573279A2849E2A60098BA47 /* UIView+Shimmering.swift */,
 				B57327982849D8220098BA47 /* NewsImageCell.swift */,
+				B57327C8284AAC860098BA47 /* UITableView+Dequeueing.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				B57327C5284A74800098BA47 /* NewsPresenter.swift in Sources */,
 				B57327BE284A16E20098BA47 /* NewsUIComposer.swift in Sources */,
 				B5732794284936B40098BA47 /* NewsImage.swift in Sources */,
+				B57327C9284AAC860098BA47 /* UITableView+Dequeueing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
