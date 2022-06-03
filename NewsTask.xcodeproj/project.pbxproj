@@ -33,6 +33,7 @@
 		B57327BB2849F5DF0098BA47 /* NewsImageCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327BA2849F5DF0098BA47 /* NewsImageCellController.swift */; };
 		B57327BE284A16E20098BA47 /* NewsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327BD284A16E20098BA47 /* NewsUIComposer.swift */; };
 		B57327C1284A32720098BA47 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C0284A32720098BA47 /* NewsViewModel.swift */; };
+		B57327C3284A6DB30098BA47 /* NewsImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		B57327BA2849F5DF0098BA47 /* NewsImageCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageCellController.swift; sourceTree = "<group>"; };
 		B57327BD284A16E20098BA47 /* NewsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsUIComposer.swift; sourceTree = "<group>"; };
 		B57327C0284A32720098BA47 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				B57327C0284A32720098BA47 /* NewsViewModel.swift */,
+				B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				B573279B2849E2A60098BA47 /* UIView+Shimmering.swift in Sources */,
 				B573275A284911C60098BA47 /* AppDelegate.swift in Sources */,
 				B57327992849D8220098BA47 /* NewsImageCell.swift in Sources */,
+				B57327C3284A6DB30098BA47 /* NewsImageViewModel.swift in Sources */,
 				B573275C284911C60098BA47 /* SceneDelegate.swift in Sources */,
 				B57327BB2849F5DF0098BA47 /* NewsImageCellController.swift in Sources */,
 				B5732797284937270098BA47 /* NewsViewController.swift in Sources */,

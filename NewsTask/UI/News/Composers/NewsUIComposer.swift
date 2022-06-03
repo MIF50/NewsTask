@@ -27,8 +27,8 @@ public final class NewsUIComposer {
         loader: NewsImageDataLoader
     ) -> ([NewsImage]) -> Void {
         return { [weak controller] news in
-            controller?.tableModel = news.map {
-                NewsImageCellController(model: $0, imageLoader: loader)
+            controller?.tableModel = news.map { model in
+                NewsImageCellController(viewModel: NewsImageViewModel(model: model, imageLoader: loader))
             }
         }
     }
