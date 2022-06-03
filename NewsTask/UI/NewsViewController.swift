@@ -58,8 +58,11 @@ final public class NewsViewController: UITableViewController {
         let cell = NewsImageCell()
         cell.titleLabel.text = cellModel.title
         cell.sourceLabel.text = cellModel.source
+        cell.newsImageView.image = nil
         cell.newsImageContainer.startShimmering()
         tasks[indexPath] = imageLoader?.loadImageData(from: cellModel.url) { [weak cell] result in
+            let data = try? result.get()
+            cell?.newsImageView.image = data.map(UIImage.init) ?? nil
             cell?.newsImageContainer.stopShimmering()
             
         }
