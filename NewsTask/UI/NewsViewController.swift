@@ -59,10 +59,12 @@ final public class NewsViewController: UITableViewController {
         cell.titleLabel.text = cellModel.title
         cell.sourceLabel.text = cellModel.source
         cell.newsImageView.image = nil
+        cell.newsImageRetryButton.isHidden = true
         cell.newsImageContainer.startShimmering()
         tasks[indexPath] = imageLoader?.loadImageData(from: cellModel.url) { [weak cell] result in
             let data = try? result.get()
             cell?.newsImageView.image = data.map(UIImage.init) ?? nil
+            cell?.newsImageRetryButton.isHidden = (data != nil)
             cell?.newsImageContainer.stopShimmering()
             
         }

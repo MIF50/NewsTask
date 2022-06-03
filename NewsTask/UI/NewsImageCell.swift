@@ -13,5 +13,6 @@ public final class NewsImageCell: UITableViewCell {
     public let titleLabel: UILabel = UILabel()
     public let newsImageContainer: UIView = UIView()
     public let newsImageView = UIImageView()
+    public let newsImageRetryButton = UIButton()
     
 }
