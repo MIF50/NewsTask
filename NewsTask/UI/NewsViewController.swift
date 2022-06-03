@@ -9,6 +9,7 @@ import UIKit
 
 public protocol NewsImageDataLoader {
     func loadImageData(from url: URL)
+    func cancelImageDataLoad(from url: URL)
 }
 
 final public class NewsViewController: UITableViewController {
@@ -53,5 +54,10 @@ final public class NewsViewController: UITableViewController {
         cell.sourceLabel.text = cellModel.source
         imageLoader?.loadImageData(from: cellModel.url)
         return cell
+    }
+    
+    public override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cellModel = tableModel[indexPath.row]
+        imageLoader?.cancelImageDataLoad(from: cellModel.url)
     }
 }
