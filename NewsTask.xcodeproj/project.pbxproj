@@ -26,6 +26,8 @@
 		B57327A72849ECF10098BA47 /* UIButton+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327A62849ECF10098BA47 /* UIButton+TestHelpers.swift */; };
 		B57327A92849ED390098BA47 /* UIControl+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327A82849ED390098BA47 /* UIControl+TestHelpers.swift */; };
 		B57327AC2849EE020098BA47 /* NewsViewController+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327AB2849EE020098BA47 /* NewsViewController+TestHelpers.swift */; };
+		B57327AE2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */; };
+		B57327B02849EED70098BA47 /* NewsViewController+LoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		B57327A62849ECF10098BA47 /* UIButton+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+TestHelpers.swift"; sourceTree = "<group>"; };
 		B57327A82849ED390098BA47 /* UIControl+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+TestHelpers.swift"; sourceTree = "<group>"; };
 		B57327AB2849EE020098BA47 /* NewsViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsViewController+TestHelpers.swift"; sourceTree = "<group>"; };
+		B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsImageCell+TestHelpers.swift"; sourceTree = "<group>"; };
+		B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsViewController+LoaderSpy.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 				B57327A62849ECF10098BA47 /* UIButton+TestHelpers.swift */,
 				B57327A82849ED390098BA47 /* UIControl+TestHelpers.swift */,
 				B57327AB2849EE020098BA47 /* NewsViewController+TestHelpers.swift */,
+				B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */,
+				B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -307,11 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57327AE2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift in Sources */,
 				B573278C2849227D0098BA47 /* NewsViewControllerTests.swift in Sources */,
 				B57327AC2849EE020098BA47 /* NewsViewController+TestHelpers.swift in Sources */,
 				B57327A72849ECF10098BA47 /* UIButton+TestHelpers.swift in Sources */,
 				B573278F284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				B57327A92849ED390098BA47 /* UIControl+TestHelpers.swift in Sources */,
+				B57327B02849EED70098BA47 /* NewsViewController+LoaderSpy.swift in Sources */,
 				B57327A32849EC6E0098BA47 /* UIImage+TestHelpers.swift in Sources */,
 				B57327A52849ECB60098BA47 /* UIRefreshController+TestHelpers.swift in Sources */,
 			);
