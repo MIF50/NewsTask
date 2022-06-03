@@ -11,5 +11,6 @@ public final class NewsImageCell: UITableViewCell {
     
     public let sourceLabel: UILabel = UILabel()
     public let titleLabel: UILabel = UILabel()
+    public let newsImageContainer: UIView = UIView()
     
 }
