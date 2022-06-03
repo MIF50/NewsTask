@@ -15,9 +15,10 @@ public final class NewsUIComposer {
         newsLoader: NewsLoader,
         imageLoader: NewsImageDataLoader
     ) -> NewsViewController {
-        let refreshController = NewsRefreshController(newsLoader: newsLoader)
+        let viewModel = NewsViewModel(newsLoader: newsLoader)
+        let refreshController = NewsRefreshController(viewModel: viewModel)
         let newsController = NewsViewController(refreshController: refreshController)
-        refreshController.onRefresh = adaptNewsToCellController(forwardingTo: newsController, loader: imageLoader)
+        viewModel.onLoadNews = adaptNewsToCellController(forwardingTo: newsController, loader: imageLoader)
         return newsController
     }
     
