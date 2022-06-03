@@ -20,6 +20,7 @@
 		B5732797284937270098BA47 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732796284937270098BA47 /* NewsViewController.swift */; };
 		B57327992849D8220098BA47 /* NewsImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327982849D8220098BA47 /* NewsImageCell.swift */; };
 		B573279B2849E2A60098BA47 /* UIView+Shimmering.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573279A2849E2A60098BA47 /* UIView+Shimmering.swift */; };
+		B57327A12849EC110098BA47 /* NewsImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327A02849EC110098BA47 /* NewsImageDataLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B5732796284937270098BA47 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		B57327982849D8220098BA47 /* NewsImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageCell.swift; sourceTree = "<group>"; };
 		B573279A2849E2A60098BA47 /* UIView+Shimmering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shimmering.swift"; sourceTree = "<group>"; };
+		B57327A02849EC110098BA47 /* NewsImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageDataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		B5732758284911C60098BA47 /* NewsTask */ = {
 			isa = PBXGroup;
 			children = (
+				B573279F2849EBFB0098BA47 /* News Image Loader */,
 				B57327952849371A0098BA47 /* UI */,
 				B5732790284936860098BA47 /* News Feature */,
 				B5732759284911C60098BA47 /* AppDelegate.swift */,
@@ -132,11 +135,43 @@
 		B57327952849371A0098BA47 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B5732796284937270098BA47 /* NewsViewController.swift */,
-				B57327982849D8220098BA47 /* NewsImageCell.swift */,
-				B573279A2849E2A60098BA47 /* UIView+Shimmering.swift */,
+				B573279C2849EBB00098BA47 /* News */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		B573279C2849EBB00098BA47 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				B573279E2849EBBF0098BA47 /* Views */,
+				B573279D2849EBB70098BA47 /* Controllers */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		B573279D2849EBB70098BA47 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B5732796284937270098BA47 /* NewsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B573279E2849EBBF0098BA47 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B573279A2849E2A60098BA47 /* UIView+Shimmering.swift */,
+				B57327982849D8220098BA47 /* NewsImageCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B573279F2849EBFB0098BA47 /* News Image Loader */ = {
+			isa = PBXGroup;
+			children = (
+				B57327A02849EC110098BA47 /* NewsImageDataLoader.swift */,
+			);
+			path = "News Image Loader";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B57327A12849EC110098BA47 /* NewsImageDataLoader.swift in Sources */,
 				B573275E284911C60098BA47 /* ViewController.swift in Sources */,
 				B573279B2849E2A60098BA47 /* UIView+Shimmering.swift in Sources */,
 				B573275A284911C60098BA47 /* AppDelegate.swift in Sources */,
