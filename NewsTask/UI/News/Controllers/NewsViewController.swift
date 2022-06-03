@@ -22,6 +22,7 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(NewsImageCell.self, forCellReuseIdentifier: "NewsImageCell")
         tableView.prefetchDataSource = self
         refreshControl = refreshController?.view
         refreshController?.refresh()
@@ -32,7 +33,7 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
     }
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cellController(forRowAt: indexPath).view()
+        return cellController(forRowAt: indexPath).view(in: tableView)
     }
     
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {

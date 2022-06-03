@@ -14,13 +14,15 @@ protocol NewsImageCellControllerDelegate {
 
 final class NewsImageCellController: NewsImageView {
     private let delegate: NewsImageCellControllerDelegate
-    let cell = NewsImageCell()
+    private var cell: NewsImageCell?
     
     init(delegate: NewsImageCellControllerDelegate) {
         self.delegate = delegate
     }
     
-    func view() -> UITableViewCell {
+    func view(in tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsImageCell") as! NewsImageCell
+        self.cell = cell
         delegate.didRequestImage()
         return cell
     }
@@ -30,18 +32,19 @@ final class NewsImageCellController: NewsImageView {
     }
     
     func cancelLoad() {
+        cell = nil
         delegate.didCancelImageRequest()
     }
     
     func display(_ viewModel: NewsImageViewModel<UIImage>) {
-        cell.titleLabel.text = viewModel.title
-        cell.sourceLabel.text = viewModel.source
+        cell?.titleLabel.text = viewModel.title
+        cell?.sourceLabel.text = viewModel.source
         
-        cell.newsImageView.image = viewModel.image
-        cell.newsImageContainer.isShimmering = viewModel.isLoading
-        cell.newsImageRetryButton.isHidden = !viewModel.shouldRetry
+        cell?.newsImageView.image = viewModel.image
+        cell?.newsImageContainer.isShimmering = viewModel.isLoading
+        cell?.newsImageRetryButton.isHidden = !viewModel.shouldRetry
         
-        cell.onRetry = delegate.didRequestImage
+        cell?.onRetry = delegate.didRequestImage
     }
 }
 
