@@ -7,12 +7,20 @@
 
 import Foundation
 
+struct NewsLoadingViewModel {
+    let isLoading: Bool
+}
+
 protocol NewsLoadingView {
-    func display(isLoading: Bool)
+    func display(_ viewModel: NewsLoadingViewModel)
+}
+
+struct NewsViewModel {
+    let news: [NewsImage]
 }
 
 protocol NewsView {
-    func display(news: [NewsImage])
+    func display(_ viewModel: NewsViewModel)
 }
 
 class NewsPresenter {
@@ -27,12 +35,12 @@ class NewsPresenter {
     var loadingView: NewsLoadingView?
     
     func loadNews() {
-        loadingView?.display(isLoading: true)
+        loadingView?.display(NewsLoadingViewModel(isLoading: true))
         newsLoader.load { [weak self] result in
             if let news = try? result.get() {
-                self?.newsView?.display(news: news)
+                self?.newsView?.display(NewsViewModel(news: news))
             }
-            self?.loadingView?.display(isLoading: false)
+            self?.loadingView?.display(NewsLoadingViewModel(isLoading: false))
         }
     }
 }
