@@ -44,8 +44,9 @@ public final class NewsImageCell: UITableViewCell {
     
     private(set) public lazy var newsImageRetryButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .cyan
-        button.setTitle("retry", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .lightGray
+        button.setTitle("↻", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 30)
         button.titleLabel?.textColor = .black
         button.addTarget(self, action: #selector(retryButtonTapped), for: .touchUpInside)
@@ -67,7 +68,9 @@ public final class NewsImageCell: UITableViewCell {
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        
+        contentView.backgroundColor = .clear
+        let margins = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)
+        contentView.frame = contentView.frame.inset(by: margins)
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 12
     }

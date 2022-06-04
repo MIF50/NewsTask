@@ -92,7 +92,7 @@ class LoadNewsFromRemoteUseCaseTests: XCTestCase {
         let item1 = makeItem(
             title: "a title",
             source: "a source",
-            publishedAt: (Date(timeIntervalSince1970: 1598627222), "2020-08-28T15:07:02+00:00"),
+            publishedAt: (Date(timeIntervalSince1970: 1654852022), "2022-06-10T09:07:02.0Z"),
             imageURL: URL(string: "http://a-url.com")!
         )
 
@@ -100,14 +100,14 @@ class LoadNewsFromRemoteUseCaseTests: XCTestCase {
             title: "any title",
             source: "any source",
             description: "any description",
-            publishedAt: (Date(timeIntervalSince1970: 1577881882), "2020-01-01T12:31:22+00:00"),
+            publishedAt: (Date(timeIntervalSince1970: 1630163222), "2021-08-28T15:07:02.0Z"),
             imageURL: URL(string: "http://another-url.com")!
         )
 
-        let items = [item1.model, item2.model]
+        let items = [item1.model,item2.model]
 
         expect(sut, toCompleteWith: .success(items), when: {
-            let json = makeItemsJSON([item1.json, item2.json])
+            let json = makeItemsJSON([item1.json,item2.json])
             client.complete(withStatusCode: 200, data: json)
         })
     }

@@ -18,7 +18,7 @@ enum NewsImageMapper {
     private struct Item: Decodable {
         let title: String
         let description: String?
-        let urlToImage: URL?
+        let urlToImage: URL
         let source: Source
         let publishedAt: Date
 
@@ -27,7 +27,7 @@ enum NewsImageMapper {
                          title: title,
                          description: description,
                          date: publishedAt,
-                         url: urlToImage ?? URL(string: "http://url.com")!
+                         url: urlToImage
             )
         }
         
@@ -38,7 +38,8 @@ enum NewsImageMapper {
 
     static func map(_ data: Data, from response: HTTPURLResponse) -> NewsLoader.Result {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .iso8601
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+
         guard response.isOK,
               let root = try? decoder.decode(Root.self, from: data)
         else {
@@ -46,4 +47,14 @@ enum NewsImageMapper {
         }
         return .success(root.news)
     }
+}
+
+extension DateFormatter {
+    static let iso8601Full: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B573275A284911C60098BA47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732759284911C60098BA47 /* AppDelegate.swift */; };
 		B573275C284911C60098BA47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573275B284911C60098BA47 /* SceneDelegate.swift */; };
-		B573275E284911C60098BA47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573275D284911C60098BA47 /* ViewController.swift */; };
 		B5732763284911C80098BA47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5732762284911C80098BA47 /* Assets.xcassets */; };
 		B5732766284911C80098BA47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5732764284911C80098BA47 /* LaunchScreen.storyboard */; };
 		B573278A28491D040098BA47 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B573278928491D040098BA47 /* README.md */; };
@@ -76,7 +75,6 @@
 		B5732756284911C60098BA47 /* NewsTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5732759284911C60098BA47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B573275B284911C60098BA47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B573275D284911C60098BA47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5732762284911C80098BA47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5732765284911C80098BA47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5732767284911C80098BA47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,12 +171,10 @@
 		B5732758284911C60098BA47 /* NewsTask */ = {
 			isa = PBXGroup;
 			children = (
-				B573279F2849EBFB0098BA47 /* News Image Loader */,
 				B57327952849371A0098BA47 /* UI */,
 				B5732790284936860098BA47 /* News Feature */,
 				B5732759284911C60098BA47 /* AppDelegate.swift */,
 				B573275B284911C60098BA47 /* SceneDelegate.swift */,
-				B573275D284911C60098BA47 /* ViewController.swift */,
 				B5732762284911C80098BA47 /* Assets.xcassets */,
 				B5732764284911C80098BA47 /* LaunchScreen.storyboard */,
 				B5732767284911C80098BA47 /* Info.plist */,
@@ -211,9 +207,9 @@
 		B5732790284936860098BA47 /* News Feature */ = {
 			isa = PBXGroup;
 			children = (
+				B573280E284B7E5F0098BA47 /* News Loader */,
+				B573279F2849EBFB0098BA47 /* News Image Loader */,
 				B57327CC284AC3930098BA47 /* Api */,
-				B57327912849369C0098BA47 /* NewsLoader.swift */,
-				B5732793284936B40098BA47 /* NewsImage.swift */,
 			);
 			path = "News Feature";
 			sourceTree = "<group>";
@@ -381,6 +377,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		B573280E284B7E5F0098BA47 /* News Loader */ = {
+			isa = PBXGroup;
+			children = (
+				B5732793284936B40098BA47 /* NewsImage.swift */,
+				B57327912849369C0098BA47 /* NewsLoader.swift */,
+			);
+			path = "News Loader";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,7 +495,6 @@
 				B573280A284B7BCB0098BA47 /* RemoteNewsImageDataLoader.swift in Sources */,
 				B57327F3284B558F0098BA47 /* MainQueueDispatchDecorator.swift in Sources */,
 				B57327D0284AC3D70098BA47 /* NewsImageMapper.swift in Sources */,
-				B573275E284911C60098BA47 /* ViewController.swift in Sources */,
 				B573279B2849E2A60098BA47 /* UIView+Shimmering.swift in Sources */,
 				B573275A284911C60098BA47 /* AppDelegate.swift in Sources */,
 				B5732802284B75640098BA47 /* URLSessionHTTPClient.swift in Sources */,

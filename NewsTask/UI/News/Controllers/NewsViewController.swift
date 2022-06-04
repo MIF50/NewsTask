@@ -22,10 +22,15 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(cell: NewsImageCell.self)
-        tableView.prefetchDataSource = self
+        configureTableView()
         refreshControl = refreshController?.view
         refreshController?.refresh()
+    }
+    
+    private func configureTableView() {
+        tableView.register(cell: NewsImageCell.self)
+        tableView.rowHeight = 100
+        tableView.prefetchDataSource = self
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
