@@ -9,7 +9,7 @@ import Foundation
 import NewsTask
 import XCTest
 
-extension NewsViewControllerTests {
+extension NewsUIIntegrationTests {
     func localized(
         _ key: String,
         file: StaticString = #file,

@@ -9,7 +9,7 @@ import XCTest
 import UIKit
 import NewsTask
 
-extension NewsViewControllerTests {
+extension NewsUIIntegrationTests {
     
     func assertThat(
         _ sut: NewsViewController,

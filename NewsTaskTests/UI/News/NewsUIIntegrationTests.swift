@@ -8,7 +8,7 @@
 import XCTest
 import NewsTask
 
-class NewsViewControllerTests: XCTestCase {
+class NewsUIIntegrationTests: XCTestCase {
     
     func test_newsView_hasTitle() {
         let (sut, _) = makeSUT()
