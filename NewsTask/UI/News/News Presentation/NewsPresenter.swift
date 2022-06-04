@@ -7,14 +7,8 @@
 
 import Foundation
 
-
-
 protocol NewsLoadingView {
     func display(_ viewModel: NewsLoadingViewModel)
-}
-
-struct NewsViewModel {
-    let news: [NewsImage]
 }
 
 protocol NewsView {
