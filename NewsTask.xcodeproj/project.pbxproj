@@ -59,6 +59,7 @@
 		B5732808284B78160098BA47 /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732807284B78160098BA47 /* SharedTestHelpers.swift */; };
 		B573280A284B7BCB0098BA47 /* RemoteNewsImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732809284B7BCB0098BA47 /* RemoteNewsImageDataLoader.swift */; };
 		B573280D284B7DBA0098BA47 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573280C284B7DBA0098BA47 /* HTTPURLResponse+StatusCode.swift */; };
+		B5732810284BE6450098BA47 /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573280F284BE6450098BA47 /* NewsDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		B5732807284B78160098BA47 /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 		B5732809284B7BCB0098BA47 /* RemoteNewsImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNewsImageDataLoader.swift; sourceTree = "<group>"; };
 		B573280C284B7DBA0098BA47 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
+		B573280F284BE6450098BA47 /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 				B5732796284937270098BA47 /* NewsViewController.swift */,
 				B57327B82849F33B0098BA47 /* NewsRefreshController.swift */,
 				B57327BA2849F5DF0098BA47 /* NewsImageCellController.swift */,
+				B573280F284BE6450098BA47 /* NewsDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5732810284BE6450098BA47 /* NewsDetailsViewController.swift in Sources */,
 				B57327C7284AA0CD0098BA47 /* NewsImagePresenter.swift in Sources */,
 				B57327A12849EC110098BA47 /* NewsImageDataLoader.swift in Sources */,
 				B573280A284B7BCB0098BA47 /* RemoteNewsImageDataLoader.swift in Sources */,
