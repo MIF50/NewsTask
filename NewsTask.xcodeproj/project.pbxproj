@@ -51,6 +51,7 @@
 		B57327F5284B561C0098BA47 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */; };
 		B57327F7284B56580098BA47 /* NewsViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F6284B56580098BA47 /* NewsViewAdapter.swift */; };
 		B57327F9284B63110098BA47 /* NewsPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F8284B63110098BA47 /* NewsPresentationAdapter.swift */; };
+		B57327FB284B63410098BA47 /* NewsImageDataLoaderPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327FA284B63410098BA47 /* NewsImageDataLoaderPresentationAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		B57327F6284B56580098BA47 /* NewsViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewAdapter.swift; sourceTree = "<group>"; };
 		B57327F8284B63110098BA47 /* NewsPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresentationAdapter.swift; sourceTree = "<group>"; };
+		B57327FA284B63410098BA47 /* NewsImageDataLoaderPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageDataLoaderPresentationAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 				B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */,
 				B57327F6284B56580098BA47 /* NewsViewAdapter.swift */,
 				B57327F8284B63110098BA47 /* NewsPresentationAdapter.swift */,
+				B57327FA284B63410098BA47 /* NewsImageDataLoaderPresentationAdapter.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				B573275A284911C60098BA47 /* AppDelegate.swift in Sources */,
 				B57327992849D8220098BA47 /* NewsImageCell.swift in Sources */,
 				B57327CB284AAE9C0098BA47 /* UIImage+Animations.swift in Sources */,
+				B57327FB284B63410098BA47 /* NewsImageDataLoaderPresentationAdapter.swift in Sources */,
 				B57327C3284A6DB30098BA47 /* NewsImageViewModel.swift in Sources */,
 				B57327F5284B561C0098BA47 /* WeakRefVirtualProxy.swift in Sources */,
 				B573275C284911C60098BA47 /* SceneDelegate.swift in Sources */,
