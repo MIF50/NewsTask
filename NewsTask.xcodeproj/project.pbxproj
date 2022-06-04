@@ -46,6 +46,7 @@
 		B57327DF284B3B460098BA47 /* NewsLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */; };
 		B57327E1284B3BB30098BA47 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327E0284B3BB30098BA47 /* NewsViewModel.swift */; };
 		B57327E3284B40B70098BA47 /* News.strings in Resources */ = {isa = PBXBuildFile; fileRef = B57327E2284B40B70098BA47 /* News.strings */; };
+		B57327E5284B41460098BA47 /* NewsViewControllerTests+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327E4284B41460098BA47 /* NewsViewControllerTests+localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLoadingViewModel.swift; sourceTree = "<group>"; };
 		B57327E0284B3BB30098BA47 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		B57327E2284B40B70098BA47 /* News.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = News.strings; sourceTree = "<group>"; };
+		B57327E4284B41460098BA47 /* NewsViewControllerTests+localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsViewControllerTests+localization.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 				B57327AD2849EE5F0098BA47 /* NewsImageCell+TestHelpers.swift */,
 				B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */,
 				B57327B12849EF240098BA47 /* NewsViewController+Assertions.swift */,
+				B57327E4284B41460098BA47 /* NewsViewControllerTests+localization.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				B57327A72849ECF10098BA47 /* UIButton+TestHelpers.swift in Sources */,
 				B573278F284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				B57327D8284AC5E00098BA47 /* LoadNewsFromRemoteUseCaseTests.swift in Sources */,
+				B57327E5284B41460098BA47 /* NewsViewControllerTests+localization.swift in Sources */,
 				B57327A92849ED390098BA47 /* UIControl+TestHelpers.swift in Sources */,
 				B57327B22849EF240098BA47 /* NewsViewController+Assertions.swift in Sources */,
 				B57327B02849EED70098BA47 /* NewsViewController+LoaderSpy.swift in Sources */,
