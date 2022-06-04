@@ -19,6 +19,10 @@ class NewsPresenter {
     private let newsView: NewsView
     private let loadingView: NewsLoadingView
     
+    static var title: String {
+        return "My News"
+    }
+    
     init(newsView: NewsView,loadingView: NewsLoadingView) {
         self.newsView = newsView
         self.loadingView = loadingView

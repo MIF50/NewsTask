@@ -22,7 +22,7 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "My News"
+        title = NewsPresenter.title
         tableView.register(cell: NewsImageCell.self)
         tableView.prefetchDataSource = self
         refreshControl = refreshController?.view
