@@ -45,8 +45,9 @@
 		B57327DD284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327DC284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift */; };
 		B57327DF284B3B460098BA47 /* NewsLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */; };
 		B57327E1284B3BB30098BA47 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327E0284B3BB30098BA47 /* NewsViewModel.swift */; };
-		B57327E3284B40B70098BA47 /* News.strings in Resources */ = {isa = PBXBuildFile; fileRef = B57327E2284B40B70098BA47 /* News.strings */; };
 		B57327E5284B41460098BA47 /* NewsViewControllerTests+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327E4284B41460098BA47 /* NewsViewControllerTests+localization.swift */; };
+		B57327E7284B42F30098BA47 /* News.strings in Resources */ = {isa = PBXBuildFile; fileRef = B57327E9284B42F30098BA47 /* News.strings */; };
+		B57327EE284B43760098BA47 /* NewsLocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327ED284B43760098BA47 /* NewsLocalizationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,8 +102,11 @@
 		B57327DC284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadNewsFromRemoteUseCaseTests+Helpers.swift"; sourceTree = "<group>"; };
 		B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLoadingViewModel.swift; sourceTree = "<group>"; };
 		B57327E0284B3BB30098BA47 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
-		B57327E2284B40B70098BA47 /* News.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = News.strings; sourceTree = "<group>"; };
 		B57327E4284B41460098BA47 /* NewsViewControllerTests+localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsViewControllerTests+localization.swift"; sourceTree = "<group>"; };
+		B57327E6284B42E60098BA47 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B57327EA284B42F70098BA47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/News.strings; sourceTree = "<group>"; };
+		B57327EB284B43160098BA47 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/News.strings; sourceTree = "<group>"; };
+		B57327ED284B43760098BA47 /* NewsLocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLocalizationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +253,7 @@
 		B57327B62849EFBD0098BA47 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				B57327EC284B43680098BA47 /* Presentation */,
 				B57327B72849EFCF0098BA47 /* Helpers */,
 				B573278B2849227D0098BA47 /* NewsUIIntegrationTests.swift */,
 			);
@@ -283,7 +288,7 @@
 				B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */,
 				B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */,
 				B57327E0284B3BB30098BA47 /* NewsViewModel.swift */,
-				B57327E2284B40B70098BA47 /* News.strings */,
+				B57327E9284B42F30098BA47 /* News.strings */,
 			);
 			path = "News Presentation";
 			sourceTree = "<group>";
@@ -322,6 +327,14 @@
 				B57327DC284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B57327EC284B43680098BA47 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				B57327ED284B43760098BA47 /* NewsLocalizationTests.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +402,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = B573274D284911C60098BA47;
 			productRefGroup = B5732757284911C60098BA47 /* Products */;
@@ -407,7 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5732766284911C80098BA47 /* LaunchScreen.storyboard in Resources */,
-				B57327E3284B40B70098BA47 /* News.strings in Resources */,
+				B57327E7284B42F30098BA47 /* News.strings in Resources */,
 				B5732763284911C80098BA47 /* Assets.xcassets in Resources */,
 				B573278A28491D040098BA47 /* README.md in Resources */,
 			);
@@ -469,6 +483,7 @@
 				B57327B22849EF240098BA47 /* NewsViewController+Assertions.swift in Sources */,
 				B57327B02849EED70098BA47 /* NewsViewController+LoaderSpy.swift in Sources */,
 				B57327A32849EC6E0098BA47 /* UIImage+TestHelpers.swift in Sources */,
+				B57327EE284B43760098BA47 /* NewsLocalizationTests.swift in Sources */,
 				B57327A52849ECB60098BA47 /* UIRefreshController+TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,8 +503,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				B5732765284911C80098BA47 /* Base */,
+				B57327E6284B42E60098BA47 /* ar */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B57327E9284B42F30098BA47 /* News.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B57327EA284B42F70098BA47 /* en */,
+				B57327EB284B43160098BA47 /* ar */,
+			);
+			name = News.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -499,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -559,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
