@@ -17,7 +17,7 @@ public final class NewsUIComposer {
     ) -> NewsViewController {
         
         let presentationAdapter = NewsPresentationAdapter(
-            newsLoader: MainQueueDispatchDecorator(decoratee:newsLoader)
+            newsLoader: MainQueueDispatchDecorator(decoratee: newsLoader)
         )
         let refreshController = NewsRefreshController(delegate: presentationAdapter)
 
@@ -26,7 +26,7 @@ public final class NewsUIComposer {
             title: NewsPresenter.title
         )
 
-        let newsViewAdapter = NewsViewAdapter(controller: newsController, imageLoader: imageLoader)
+        let newsViewAdapter = NewsViewAdapter(controller: newsController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
         presentationAdapter.presenter = NewsPresenter(
             newsView: newsViewAdapter,
             loadingView: WeakRefVirtualProxy(refreshController)
@@ -59,9 +59,17 @@ private final class MainQueueDispatchDecorator<T> {
     }
 }
 
-extension MainQueueDispatchDecorator: NewsLoader where T: NewsLoader {
+extension MainQueueDispatchDecorator: NewsLoader where T == NewsLoader {
     func load(completion: @escaping (NewsLoader.Result) -> Void) {
         decoratee.load { [weak self] result in
+            self?.dispatch { completion(result) }
+        }
+    }
+}
+
+extension MainQueueDispatchDecorator: NewsImageDataLoader where T == NewsImageDataLoader {
+    func loadImageData(from url: URL, completion: @escaping (NewsImageDataLoader.Result) -> Void) -> NewsImageDataLoaderTask {
+        decoratee.loadImageData(from: url) { [weak self] result in
             self?.dispatch { completion(result) }
         }
     }
