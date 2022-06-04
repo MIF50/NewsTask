@@ -45,6 +45,7 @@
 		B57327DD284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327DC284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift */; };
 		B57327DF284B3B460098BA47 /* NewsLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */; };
 		B57327E1284B3BB30098BA47 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327E0284B3BB30098BA47 /* NewsViewModel.swift */; };
+		B57327E3284B40B70098BA47 /* News.strings in Resources */ = {isa = PBXBuildFile; fileRef = B57327E2284B40B70098BA47 /* News.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		B57327DC284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadNewsFromRemoteUseCaseTests+Helpers.swift"; sourceTree = "<group>"; };
 		B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLoadingViewModel.swift; sourceTree = "<group>"; };
 		B57327E0284B3BB30098BA47 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		B57327E2284B40B70098BA47 /* News.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = News.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 				B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */,
 				B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */,
 				B57327E0284B3BB30098BA47 /* NewsViewModel.swift */,
+				B57327E2284B40B70098BA47 /* News.strings */,
 			);
 			path = "News Presentation";
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5732766284911C80098BA47 /* LaunchScreen.storyboard in Resources */,
+				B57327E3284B40B70098BA47 /* News.strings in Resources */,
 				B5732763284911C80098BA47 /* Assets.xcassets in Resources */,
 				B573278A28491D040098BA47 /* README.md in Resources */,
 			);
