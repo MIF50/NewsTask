@@ -18,6 +18,8 @@ public final class NewsUIComposer {
         let presentationAdapter = NewsPresentationAdapter(newsLoader: newsLoader)
         let refreshController = NewsRefreshController(delegate: presentationAdapter)
         let newsController = NewsViewController(refreshController: refreshController)
+        newsController.title = NewsPresenter.title
+
         let newsViewAdapter = NewsViewAdapter(controller: newsController, imageLoader: imageLoader)
         presentationAdapter.presenter = NewsPresenter(
             newsView: newsViewAdapter,
