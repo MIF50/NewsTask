@@ -43,6 +43,7 @@
 		B57327D8284AC5E00098BA47 /* LoadNewsFromRemoteUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327D7284AC5E00098BA47 /* LoadNewsFromRemoteUseCaseTests.swift */; };
 		B57327DB284AC61F0098BA47 /* HTTPClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327DA284AC61F0098BA47 /* HTTPClientSpy.swift */; };
 		B57327DD284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327DC284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift */; };
+		B57327DF284B3B460098BA47 /* NewsLoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		B57327D7284AC5E00098BA47 /* LoadNewsFromRemoteUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNewsFromRemoteUseCaseTests.swift; sourceTree = "<group>"; };
 		B57327DA284AC61F0098BA47 /* HTTPClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientSpy.swift; sourceTree = "<group>"; };
 		B57327DC284AC65A0098BA47 /* LoadNewsFromRemoteUseCaseTests+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoadNewsFromRemoteUseCaseTests+Helpers.swift"; sourceTree = "<group>"; };
+		B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLoadingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				B57327C2284A6DB30098BA47 /* NewsImageViewModel.swift */,
 				B57327C4284A74800098BA47 /* NewsPresenter.swift */,
 				B57327C6284AA0CD0098BA47 /* NewsImagePresenter.swift */,
+				B57327DE284B3B460098BA47 /* NewsLoadingViewModel.swift */,
 			);
 			path = "News Presentation";
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				B573275C284911C60098BA47 /* SceneDelegate.swift in Sources */,
 				B57327BB2849F5DF0098BA47 /* NewsImageCellController.swift in Sources */,
 				B5732797284937270098BA47 /* NewsViewController.swift in Sources */,
+				B57327DF284B3B460098BA47 /* NewsLoadingViewModel.swift in Sources */,
 				B57327922849369C0098BA47 /* NewsLoader.swift in Sources */,
 				B57327D2284AC5550098BA47 /* RemoteNewsLoader.swift in Sources */,
 				B57327B92849F33B0098BA47 /* NewsRefreshController.swift in Sources */,

@@ -7,9 +7,7 @@
 
 import Foundation
 
-struct NewsLoadingViewModel {
-    let isLoading: Bool
-}
+
 
 protocol NewsLoadingView {
     func display(_ viewModel: NewsLoadingViewModel)
