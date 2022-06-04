@@ -47,6 +47,7 @@
 		B57327E1284B3BB30098BA47 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327E0284B3BB30098BA47 /* NewsViewModel.swift */; };
 		B57327E5284B41460098BA47 /* NewsViewControllerTests+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327E4284B41460098BA47 /* NewsViewControllerTests+localization.swift */; };
 		B57327E7284B42F30098BA47 /* News.strings in Resources */ = {isa = PBXBuildFile; fileRef = B57327E9284B42F30098BA47 /* News.strings */; };
+		B57327F3284B558F0098BA47 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		B57327E6284B42E60098BA47 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		B57327EA284B42F70098BA47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/News.strings; sourceTree = "<group>"; };
 		B57327EB284B43160098BA47 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/News.strings; sourceTree = "<group>"; };
+		B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				B57327BD284A16E20098BA47 /* NewsUIComposer.swift */,
+				B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			files = (
 				B57327C7284AA0CD0098BA47 /* NewsImagePresenter.swift in Sources */,
 				B57327A12849EC110098BA47 /* NewsImageDataLoader.swift in Sources */,
+				B57327F3284B558F0098BA47 /* MainQueueDispatchDecorator.swift in Sources */,
 				B57327D0284AC3D70098BA47 /* NewsImageMapper.swift in Sources */,
 				B573275E284911C60098BA47 /* ViewController.swift in Sources */,
 				B573279B2849E2A60098BA47 /* UIView+Shimmering.swift in Sources */,
