@@ -28,6 +28,7 @@ class NewsImagePresenter <View: NewsImageView, Image> where View.Image == Image 
             title: model.title,
             source: model.source,
             image: nil,
+            timeAgo: model.date.timeAgoDisplay(),
             isLoading: true,
             shouldRetry: false))
     }
@@ -43,6 +44,7 @@ class NewsImagePresenter <View: NewsImageView, Image> where View.Image == Image 
             title: model.title,
             source: model.source,
             image: image,
+            timeAgo: model.date.timeAgoDisplay(),
             isLoading: false,
             shouldRetry: false))
     }
@@ -52,7 +54,16 @@ class NewsImagePresenter <View: NewsImageView, Image> where View.Image == Image 
             title: model.title,
             source: model.source,
             image: nil,
+            timeAgo: model.date.timeAgoDisplay(),
             isLoading: false,
             shouldRetry: true))
+    }
+}
+
+extension Date {
+    func timeAgoDisplay() -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: self, relativeTo: Date())
     }
 }

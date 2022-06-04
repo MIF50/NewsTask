@@ -11,6 +11,7 @@ struct NewsImageViewModel<Image> {
     let title: String
     let source: String
     let image: Image?
+    let timeAgo: String
     let isLoading: Bool
     let shouldRetry: Bool
 }

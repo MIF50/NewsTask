@@ -55,6 +55,9 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
         indexPaths.forEach(cancelCellControllerLoad(forRowAt:))
     }
     
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cellController(forRowAt: indexPath).cancelLoad()
+    }
     
     private func cellController(forRowAt indexPath: IndexPath) -> NewsImageCellController {
         return tableModel[indexPath.row]

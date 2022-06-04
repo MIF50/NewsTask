@@ -12,7 +12,15 @@ public final class NewsImageCell: UITableViewCell {
 
     // MARK: - Views
     
-    private(set) public lazy var  sourceLabel: UILabel = {
+    private(set) public lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 2
+        label.font = .systemFont(ofSize: 14)
+        return label
+    }()
+    
+    private(set) public lazy var sourceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -21,11 +29,12 @@ public final class NewsImageCell: UITableViewCell {
         return label
     }()
     
-    private(set) public lazy var titleLabel: UILabel = {
+    private(set) public lazy var timeAgoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 2
-        label.font = .systemFont(ofSize: 14)
+        label.numberOfLines = 1
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .darkGray
         return label
     }()
     
@@ -64,6 +73,7 @@ public final class NewsImageCell: UITableViewCell {
         configureNewsImage()
         configureTitle()
         configureSource()
+        configureTimeAgo()
     }
     
     public override func layoutSubviews() {
@@ -113,6 +123,15 @@ public final class NewsImageCell: UITableViewCell {
         ])
     }
     
+    private func configureTimeAgo() {
+        timeAgoLabel.text = "1 hour ago"
+        contentView.addSubview(timeAgoLabel)
+        NSLayoutConstraint.activate([
+            timeAgoLabel.leadingAnchor.constraint(equalTo: newsImageContainer.trailingAnchor,constant: 12),
+            timeAgoLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -8),
+        ])
+    }
+    
     @objc private func retryButtonTapped() {
         onRetry?()
     }
@@ -135,8 +154,6 @@ struct NewsImageCellPreview: PreviewProvider {
             NewsImageCell(style: .default, reuseIdentifier: "Reuse")
         }
         
-        func updateUIView(_ uiView: UIViewType, context: Context) {
-            
-        }
+        func updateUIView(_ uiView: UIViewType, context: Context) {}
     }
 }
