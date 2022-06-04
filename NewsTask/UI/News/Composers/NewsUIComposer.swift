@@ -43,28 +43,6 @@ private extension NewsViewController {
     }
 }
 
-final class NewsPresentationAdapter: NewsRefreshViewControllerDelegate {
-    private let newsLoader: NewsLoader
-    var presenter: NewsPresenter?
-    
-    init(newsLoader: NewsLoader) {
-        self.newsLoader = newsLoader
-    }
-    
-    func didRequestNewsRefresh() {
-        presenter?.didStartLoadingNews()
-        
-        newsLoader.load { [weak self] result in
-            switch result {
-            case let .success(news):
-                self?.presenter?.didFinishLoadingNews(with: news)
-            case let .failure(error):
-                self?.presenter?.didFinishLoadingNews(with: error)
-            }
-        }
-    }
-}
-
 final class NewsImageDataLoaderPresentationAdapter<View: NewsImageView, Image>: NewsImageCellControllerDelegate where View.Image == Image {
     private let model: NewsImage
     private let imageLoader: NewsImageDataLoader

@@ -50,6 +50,7 @@
 		B57327F3284B558F0098BA47 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */; };
 		B57327F5284B561C0098BA47 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */; };
 		B57327F7284B56580098BA47 /* NewsViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F6284B56580098BA47 /* NewsViewAdapter.swift */; };
+		B57327F9284B63110098BA47 /* NewsPresentationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F8284B63110098BA47 /* NewsPresentationAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		B57327F6284B56580098BA47 /* NewsViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewAdapter.swift; sourceTree = "<group>"; };
+		B57327F8284B63110098BA47 /* NewsPresentationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresentationAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 				B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */,
 				B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */,
 				B57327F6284B56580098BA47 /* NewsViewAdapter.swift */,
+				B57327F8284B63110098BA47 /* NewsPresentationAdapter.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				B5732797284937270098BA47 /* NewsViewController.swift in Sources */,
 				B57327DF284B3B460098BA47 /* NewsLoadingViewModel.swift in Sources */,
 				B57327922849369C0098BA47 /* NewsLoader.swift in Sources */,
+				B57327F9284B63110098BA47 /* NewsPresentationAdapter.swift in Sources */,
 				B57327D2284AC5550098BA47 /* RemoteNewsLoader.swift in Sources */,
 				B57327F7284B56580098BA47 /* NewsViewAdapter.swift in Sources */,
 				B57327B92849F33B0098BA47 /* NewsRefreshController.swift in Sources */,
