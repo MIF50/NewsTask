@@ -15,16 +15,28 @@ public final class NewsUIComposer {
         newsLoader: NewsLoader,
         imageLoader: NewsImageDataLoader
     ) -> NewsViewController {
+        
         let presentationAdapter = NewsPresentationAdapter(newsLoader: newsLoader)
         let refreshController = NewsRefreshController(delegate: presentationAdapter)
-        let newsController = NewsViewController(refreshController: refreshController)
-        newsController.title = NewsPresenter.title
+
+        let newsController = NewsViewController.makeWith(
+            refreshController: refreshController,
+            title: NewsPresenter.title
+        )
 
         let newsViewAdapter = NewsViewAdapter(controller: newsController, imageLoader: imageLoader)
         presentationAdapter.presenter = NewsPresenter(
             newsView: newsViewAdapter,
             loadingView: WeakRefVirtualProxy(refreshController)
         )
+        return newsController
+    }
+}
+
+private extension NewsViewController {
+    static func makeWith(refreshController: NewsRefreshController, title: String) -> NewsViewController {
+        let newsController = NewsViewController(refreshController: refreshController)
+        newsController.title = NewsPresenter.title
         return newsController
     }
 }
