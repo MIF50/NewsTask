@@ -20,12 +20,12 @@ public final class NewsUIComposer {
             newsLoader: MainQueueDispatchDecorator(decoratee: newsLoader)
         )
         let refreshController = NewsRefreshController(delegate: presentationAdapter)
-
-        let newsController = NewsViewController.makeWith(
+        
+        let newsController = makeNewsViewController(
             refreshController: refreshController,
             title: NewsPresenter.title
         )
-
+        
         let newsViewAdapter = NewsViewAdapter(controller: newsController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
         presentationAdapter.presenter = NewsPresenter(
             newsView: newsViewAdapter,
@@ -33,10 +33,11 @@ public final class NewsUIComposer {
         )
         return newsController
     }
-}
-
-private extension NewsViewController {
-    static func makeWith(refreshController: NewsRefreshController, title: String) -> NewsViewController {
+    
+    private static func makeNewsViewController(
+        refreshController: NewsRefreshController,
+        title: String
+    ) -> NewsViewController {
         let newsController = NewsViewController(refreshController: refreshController)
         newsController.title = NewsPresenter.title
         return newsController
