@@ -10,6 +10,14 @@ import NewsTask
 
 class NewsViewControllerTests: XCTestCase {
     
+    func test_newsView_hasTitle() {
+        let (sut, _) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        
+        XCTAssertEqual(sut.title, "My News")
+    }
+    
     func test_loadFeedActions_requestFeedFromLoader() {
         let (sut, loader) = makeSUT()
         XCTAssertEqual(loader.loadNewsCallCount, 0, "Expected no loading requests before view is loaded")
