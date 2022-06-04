@@ -246,15 +246,27 @@ class NewsUIIntegrationTests: XCTestCase {
     }
     
     func test_newsImageView_doesNotRenderLoadedImageWhenNotVisibleAnymore() {
-            let (sut, loader) = makeSUT()
-            sut.loadViewIfNeeded()
-            loader.completeNewsLoading(with: [makeImage()],at: 0)
-
-            let view = sut.simulateNewsImageViewNotVisible(at: 0)
-            loader.completeImageLoading(with: anyImageData())
-
-            XCTAssertNil(view?.renderedImage, "Expected no rendered image when an image load finishes after the view is not visible anymore")
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        loader.completeNewsLoading(with: [makeImage()],at: 0)
+        
+        let view = sut.simulateNewsImageViewNotVisible(at: 0)
+        loader.completeImageLoading(with: anyImageData())
+        
+        XCTAssertNil(view?.renderedImage, "Expected no rendered image when an image load finishes after the view is not visible anymore")
+    }
+    
+    func test_loadNewsCompletion_dispatchesFromBackgroundToMainThread() {
+        let (sut, loader) = makeSUT()
+        sut.loadViewIfNeeded()
+        
+        let exp = expectation(description: "Wait for background queue")
+        DispatchQueue.global().async {
+            loader.completeNewsLoading(at: 0)
+            exp.fulfill()
         }
+        wait(for: [exp], timeout: 1.0)
+    }
     
     // MARK: - Helpers
     

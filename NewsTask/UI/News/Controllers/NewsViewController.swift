@@ -11,7 +11,15 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
     
     private var refreshController: NewsRefreshController?
     var tableModel = [NewsImageCellController]() {
-        didSet { tableView.reloadData() }
+        didSet {
+            if Thread.isMainThread {
+                tableView.reloadData()
+            } else {
+                DispatchQueue.main.async { [weak self] in
+                    self?.tableView.reloadData()
+                }
+            }            
+        }
     }
     
     convenience init(refreshController: NewsRefreshController) {

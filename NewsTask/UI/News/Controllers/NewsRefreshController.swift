@@ -25,6 +25,10 @@ final class NewsRefreshController: NSObject, NewsLoadingView {
     }
     
     func display(_ viewModel: NewsLoadingViewModel) {
+        guard Thread.isMainThread else {
+            return DispatchQueue.main.async { [weak self] in self?.display(viewModel) }
+        }
+        
         if viewModel.isLoading {
             view.beginRefreshing()
         } else {
