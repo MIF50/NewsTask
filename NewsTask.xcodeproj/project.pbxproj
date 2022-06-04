@@ -49,6 +49,7 @@
 		B57327E7284B42F30098BA47 /* News.strings in Resources */ = {isa = PBXBuildFile; fileRef = B57327E9284B42F30098BA47 /* News.strings */; };
 		B57327F3284B558F0098BA47 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */; };
 		B57327F5284B561C0098BA47 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */; };
+		B57327F7284B56580098BA47 /* NewsViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F6284B56580098BA47 /* NewsViewAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		B57327EB284B43160098BA47 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/News.strings; sourceTree = "<group>"; };
 		B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
+		B57327F6284B56580098BA47 /* NewsViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 				B57327BD284A16E20098BA47 /* NewsUIComposer.swift */,
 				B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */,
 				B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */,
+				B57327F6284B56580098BA47 /* NewsViewAdapter.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				B57327DF284B3B460098BA47 /* NewsLoadingViewModel.swift in Sources */,
 				B57327922849369C0098BA47 /* NewsLoader.swift in Sources */,
 				B57327D2284AC5550098BA47 /* RemoteNewsLoader.swift in Sources */,
+				B57327F7284B56580098BA47 /* NewsViewAdapter.swift in Sources */,
 				B57327B92849F33B0098BA47 /* NewsRefreshController.swift in Sources */,
 				B57327C5284A74800098BA47 /* NewsPresenter.swift in Sources */,
 				B57327E1284B3BB30098BA47 /* NewsViewModel.swift in Sources */,
