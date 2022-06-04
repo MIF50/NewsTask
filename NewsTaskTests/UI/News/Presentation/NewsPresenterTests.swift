@@ -16,14 +16,21 @@ final class NewsPresenter {
 final class NewsPresenterTests: XCTestCase {
     
     func test_init_doesNotSendMessagesToView() {
-        let view = ViewSpy()
-        
-        _ = NewsPresenter(view: view)
+        let (_, view) = makeSUT()
         
         XCTAssertTrue(view.messages.isEmpty, "Expected no view messages")
     }
     
     // MARK: - Helpers
+    
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: NewsPresenter, view: ViewSpy) {
+        let view = ViewSpy()
+        let sut = NewsPresenter(view: view)
+        trackForMemoryLeaks(view, file: file, line: line)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return (sut, view)
+    }
+    
     private class ViewSpy {
         let messages = [Any]()
     }
