@@ -16,7 +16,9 @@ public final class NewsUIComposer {
         imageLoader: NewsImageDataLoader
     ) -> NewsViewController {
         
-        let presentationAdapter = NewsPresentationAdapter(newsLoader: newsLoader)
+        let presentationAdapter = NewsPresentationAdapter(
+            newsLoader: MainQueueDispatchDecorator(decoratee:newsLoader)
+        )
         let refreshController = NewsRefreshController(delegate: presentationAdapter)
 
         let newsController = NewsViewController.makeWith(
@@ -38,6 +40,26 @@ private extension NewsViewController {
         let newsController = NewsViewController(refreshController: refreshController)
         newsController.title = NewsPresenter.title
         return newsController
+    }
+}
+
+private final class MainQueueDispatchDecorator: NewsLoader {
+    private let decoratee: NewsLoader
+
+    init(decoratee: NewsLoader) {
+        self.decoratee = decoratee
+    }
+
+    func load(completion: @escaping (NewsLoader.Result) -> Void) {
+        decoratee.load { result in
+            if Thread.isMainThread {
+                completion(result)
+            } else {
+                DispatchQueue.main.async {
+                    completion(result)
+                }
+            }
+        }
     }
 }
 
