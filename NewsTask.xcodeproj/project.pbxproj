@@ -48,6 +48,7 @@
 		B57327E5284B41460098BA47 /* NewsViewControllerTests+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327E4284B41460098BA47 /* NewsViewControllerTests+localization.swift */; };
 		B57327E7284B42F30098BA47 /* News.strings in Resources */ = {isa = PBXBuildFile; fileRef = B57327E9284B42F30098BA47 /* News.strings */; };
 		B57327F3284B558F0098BA47 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */; };
+		B57327F5284B561C0098BA47 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		B57327EA284B42F70098BA47 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/News.strings; sourceTree = "<group>"; };
 		B57327EB284B43160098BA47 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/News.strings; sourceTree = "<group>"; };
 		B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
+		B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 			children = (
 				B57327BD284A16E20098BA47 /* NewsUIComposer.swift */,
 				B57327F2284B558F0098BA47 /* MainQueueDispatchDecorator.swift */,
+				B57327F4284B561C0098BA47 /* WeakRefVirtualProxy.swift */,
 			);
 			path = Composers;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				B57327992849D8220098BA47 /* NewsImageCell.swift in Sources */,
 				B57327CB284AAE9C0098BA47 /* UIImage+Animations.swift in Sources */,
 				B57327C3284A6DB30098BA47 /* NewsImageViewModel.swift in Sources */,
+				B57327F5284B561C0098BA47 /* WeakRefVirtualProxy.swift in Sources */,
 				B573275C284911C60098BA47 /* SceneDelegate.swift in Sources */,
 				B57327BB2849F5DF0098BA47 /* NewsImageCellController.swift in Sources */,
 				B5732797284937270098BA47 /* NewsViewController.swift in Sources */,
