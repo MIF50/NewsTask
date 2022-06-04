@@ -60,6 +60,7 @@
 		B573280A284B7BCB0098BA47 /* RemoteNewsImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732809284B7BCB0098BA47 /* RemoteNewsImageDataLoader.swift */; };
 		B573280D284B7DBA0098BA47 /* HTTPURLResponse+StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573280C284B7DBA0098BA47 /* HTTPURLResponse+StatusCode.swift */; };
 		B5732810284BE6450098BA47 /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573280F284BE6450098BA47 /* NewsDetailsViewController.swift */; };
+		B5732812284BF1B90098BA47 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732811284BF1B90098BA47 /* SceneDelegateTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		B5732809284B7BCB0098BA47 /* RemoteNewsImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNewsImageDataLoader.swift; sourceTree = "<group>"; };
 		B573280C284B7DBA0098BA47 /* HTTPURLResponse+StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+StatusCode.swift"; sourceTree = "<group>"; };
 		B573280F284BE6450098BA47 /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
+		B5732811284BF1B90098BA47 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				B57327D3284AC58D0098BA47 /* News Feature */,
 				B573278D284928560098BA47 /* Helper */,
 				B57327B52849EFB00098BA47 /* UI */,
+				B5732811284BF1B90098BA47 /* SceneDelegateTests.swift */,
 			);
 			path = NewsTaskTests;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				B57327A32849EC6E0098BA47 /* UIImage+TestHelpers.swift in Sources */,
 				B57327A52849ECB60098BA47 /* UIRefreshController+TestHelpers.swift in Sources */,
 				B5732800284B71540098BA47 /* LoadNewsImageDataFromRemoteUseCaseTests.swift in Sources */,
+				B5732812284BF1B90098BA47 /* SceneDelegateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
