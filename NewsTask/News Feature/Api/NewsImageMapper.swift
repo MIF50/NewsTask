@@ -39,7 +39,7 @@ enum NewsImageMapper {
     static func map(_ data: Data, from response: HTTPURLResponse) -> NewsLoader.Result {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
-        guard response.statusCode == 200,
+        guard response.isOK,
               let root = try? decoder.decode(Root.self, from: data)
         else {
             return .failure(RemoteNewsLoader.Error.invalidData)

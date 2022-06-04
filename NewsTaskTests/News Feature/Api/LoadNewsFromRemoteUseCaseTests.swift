@@ -130,7 +130,7 @@ class LoadNewsFromRemoteUseCaseTests: XCTestCase {
     // MARK: - Helpers
     
     private func makeSUT(
-        url: URL = URL(string: "https://a-url.com")!,
+        url: URL = anyURL(),
         file: StaticString = #filePath,
         line: UInt = #line
     ) -> (sut: RemoteNewsLoader, client: HTTPClientSpy) {
