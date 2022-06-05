@@ -33,6 +33,9 @@ extension NewsUIIntegrationTests {
         file: StaticString = #file,
         line: UInt = #line
     ) {
+        sut.tableView.layoutIfNeeded()
+        RunLoop.main.run(until: Date())
+        
         let view = sut.newsImageView(at: index)
         
         guard let cell = view as? NewsImageCell else {

@@ -10,6 +10,7 @@ import UIKit
 public final class NewsViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
     private var refreshController: NewsRefreshController?
+    private var loadingControllers = [IndexPath: NewsImageCellController]()
     private var tableModel = [NewsImageCellController]() {
         didSet { tableView.reloadData() }
     }
@@ -34,6 +35,7 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
     }
     
     func display( _ items: [NewsImageCellController]) {
+        loadingControllers = [:]
         tableModel = items
     }
     
@@ -64,10 +66,13 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
     }
     
     private func cellController(forRowAt indexPath: IndexPath) -> NewsImageCellController {
-        return tableModel[indexPath.row]
+        let controller = tableModel[indexPath.row]
+        loadingControllers[indexPath] = controller
+        return controller
     }
     
     private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
-        cellController(forRowAt: indexPath).cancelLoad()
+        loadingControllers[indexPath]?.cancelLoad()
+        loadingControllers[indexPath] = nil
     }
 }

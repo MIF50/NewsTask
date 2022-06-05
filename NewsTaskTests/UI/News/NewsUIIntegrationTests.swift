@@ -66,6 +66,20 @@ class NewsUIIntegrationTests: XCTestCase {
         assertThat(sut, isRendering: [image0, image1, image2, image3])
     }
     
+    func test_loadNewsCompletion_rendersSuccessfullyLoadedEmptyNewsAfterNonEmptyFeed() {
+        let image0 = makeImage()
+        let image1 = makeImage()
+        let (sut, loader) = makeSUT()
+        
+        sut.loadViewIfNeeded()
+        loader.completeNewsLoading(with: [image0, image1], at: 0)
+        assertThat(sut, isRendering: [image0, image1])
+        
+        sut.simulateUserInitiatedNewsReload()
+        loader.completeNewsLoading(with: [], at: 1)
+        assertThat(sut, isRendering: [])
+    }
+    
     func test_loadNewsCompletion_doesNotAlterCurrentRenderingStateOnError() {
         let image0 = makeImage()
         let (sut, loader) = makeSUT()
