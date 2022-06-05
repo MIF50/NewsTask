@@ -10,7 +10,7 @@ import UIKit
 public final class NewsViewController: UITableViewController, UITableViewDataSourcePrefetching {
     
     private var refreshController: NewsRefreshController?
-    var tableModel = [NewsImageCellController]() {
+    private var tableModel = [NewsImageCellController]() {
         didSet { tableView.reloadData() }
     }
     
@@ -31,6 +31,10 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
         tableView.register(cell: NewsImageCell.self)
         tableView.rowHeight = 100
         tableView.prefetchDataSource = self
+    }
+    
+    func display( _ items: [NewsImageCellController]) {
+        tableModel = items
     }
     
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -17,16 +17,18 @@ final class NewsViewAdapter: NewsView {
     }
     
     func display(_ viewModel: NewsViewModel) {
-        controller?.tableModel = viewModel.news.map { model in
-            let adapter = NewsImageDataLoaderPresentationAdapter<WeakRefVirtualProxy<NewsImageCellController>, UIImage>(model: model, imageLoader: imageLoader)
-            let view = NewsImageCellController(delegate: adapter)
-            
-            adapter.presenter = NewsImagePresenter(
-                view: WeakRefVirtualProxy(view),
-                imageTransformer: UIImage.init
-            )
-            
-            return view
-        }
+        controller?.display(
+            viewModel.news.map { model in
+                let adapter = NewsImageDataLoaderPresentationAdapter<WeakRefVirtualProxy<NewsImageCellController>, UIImage>(model: model, imageLoader: imageLoader)
+                let view = NewsImageCellController(delegate: adapter)
+                
+                adapter.presenter = NewsImagePresenter(
+                    view: WeakRefVirtualProxy(view),
+                    imageTransformer: UIImage.init
+                )
+                
+                return view
+            }
+        )
     }
 }

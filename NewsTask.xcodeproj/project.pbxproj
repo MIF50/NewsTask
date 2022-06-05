@@ -63,6 +63,7 @@
 		B5732812284BF1B90098BA47 /* SceneDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732811284BF1B90098BA47 /* SceneDelegateTests.swift */; };
 		B5732818284C4B5A0098BA47 /* NewsAcceptanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732817284C4B5A0098BA47 /* NewsAcceptanceTests.swift */; };
 		B573281A284C4B9D0098BA47 /* HTTPClientStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5732819284C4B9D0098BA47 /* HTTPClientStub.swift */; };
+		B573281C284C4EE20098BA47 /* NewsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573281B284C4EE20098BA47 /* NewsSnapshotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		B5732811284BF1B90098BA47 /* SceneDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegateTests.swift; sourceTree = "<group>"; };
 		B5732817284C4B5A0098BA47 /* NewsAcceptanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAcceptanceTests.swift; sourceTree = "<group>"; };
 		B5732819284C4B9D0098BA47 /* HTTPClientStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientStub.swift; sourceTree = "<group>"; };
+		B573281B284C4EE20098BA47 /* NewsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 				B57327FC284B68D70098BA47 /* Presentation */,
 				B57327B72849EFCF0098BA47 /* Helpers */,
 				B573278B2849227D0098BA47 /* NewsUIIntegrationTests.swift */,
+				B573281B284C4EE20098BA47 /* NewsSnapshotTests.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				B57327E5284B41460098BA47 /* NewsViewControllerTests+localization.swift in Sources */,
 				B57327A92849ED390098BA47 /* UIControl+TestHelpers.swift in Sources */,
 				B57327B22849EF240098BA47 /* NewsViewController+Assertions.swift in Sources */,
+				B573281C284C4EE20098BA47 /* NewsSnapshotTests.swift in Sources */,
 				B5732806284B77AE0098BA47 /* URLProtocolStub.swift in Sources */,
 				B5732808284B78160098BA47 /* SharedTestHelpers.swift in Sources */,
 				B5732818284C4B5A0098BA47 /* NewsAcceptanceTests.swift in Sources */,
