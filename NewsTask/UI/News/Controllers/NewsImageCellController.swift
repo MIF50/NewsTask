@@ -41,6 +41,7 @@ final class NewsImageCellController: NewsImageView {
     func display(_ viewModel: NewsImageViewModel<UIImage>) {
         cell?.titleLabel.text = viewModel.title
         cell?.sourceLabel.text = viewModel.source
+        cell?.timeAgoLabel.text = viewModel.timeAgo
         
         cell?.newsImageView.setImageAnimated(viewModel.image)
         cell?.newsImageContainer.isShimmering = viewModel.isLoading

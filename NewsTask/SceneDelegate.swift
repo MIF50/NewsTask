@@ -46,9 +46,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func makeRemoteNewsLoader() -> NewsLoader.Publisher {
-//        let url = URL(string: "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=38452b3dbdc64b5aba76dc73c70fe3d1")!
+        let url = URL(string: "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=38452b3dbdc64b5aba76dc73c70fe3d1")!
 
-        let url = URL(string: "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=38452b3dbdc64b5aba76dc73c70fe3d1")!
+//        let url = URL(string: "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=38452b3dbdc64b5aba76dc73c70fe3d1")!
         return httpClient
             .getPublisher(url: url)
             .tryMap(NewsImageMapper.map)

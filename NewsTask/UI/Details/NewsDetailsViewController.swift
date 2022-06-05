@@ -70,7 +70,7 @@ class NewsDetailsViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.textColor = .darkText
-        label.font = .systemFont(ofSize: 30)
+        label.font = .systemFont(ofSize: 20)
         return label
     }()
     

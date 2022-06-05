@@ -50,7 +50,7 @@ enum NewsImageMapper {
     
     public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [NewsImage] {
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Shourt)
         guard response.isOK, let root = try? decoder.decode(Root.self, from: data) else {
             throw RemoteNewsLoader.Error.invalidData
         }
@@ -63,6 +63,14 @@ extension DateFormatter {
     static let iso8601Full: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
+    
+    static let iso8601Shourt: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter
