@@ -17,6 +17,9 @@ extension NewsUIIntegrationTests {
         file: StaticString = #file,
         line: UInt = #line
     ) {
+        
+        sut.view.enforceLayoutCycle()
+        
         guard sut.numberOfRenderedNewsImageViews() == news.count else {
             return XCTFail("Expected \(news.count) images, got \(sut.numberOfRenderedNewsImageViews()) instead.", file: file, line: line)
         }
@@ -33,9 +36,6 @@ extension NewsUIIntegrationTests {
         file: StaticString = #file,
         line: UInt = #line
     ) {
-        sut.tableView.layoutIfNeeded()
-        RunLoop.main.run(until: Date())
-        
         let view = sut.newsImageView(at: index)
         
         guard let cell = view as? NewsImageCell else {
@@ -45,5 +45,13 @@ extension NewsUIIntegrationTests {
         XCTAssertEqual(cell.sourceText, image.source, "Expected source text to be \(String(describing: image.source)) for image view at index (\(index))", file: file, line: line)
         
         XCTAssertEqual(cell.titleText, image.title, "Expected title text to be \(String(describing: image.description)) for image view at index (\(index)", file: file, line: line)
+    }
+}
+
+
+private extension UIView {
+    func enforceLayoutCycle() {
+        layoutIfNeeded()
+        RunLoop.current.run(until: Date())
     }
 }
