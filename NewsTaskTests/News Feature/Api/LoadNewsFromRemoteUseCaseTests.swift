@@ -92,7 +92,7 @@ class LoadNewsFromRemoteUseCaseTests: XCTestCase {
         let item1 = makeItem(
             title: "a title",
             source: "a source",
-            publishedAt: (Date(timeIntervalSince1970: 1654852022), "2022-06-10T09:07:02.0Z"),
+            publishedAt: (Date(timeIntervalSince1970: 1654852022), "2022-06-10T09:07:02Z"),
             imageURL: URL(string: "http://a-url.com")!
         )
 
@@ -100,7 +100,7 @@ class LoadNewsFromRemoteUseCaseTests: XCTestCase {
             title: "any title",
             source: "any source",
             description: "any description",
-            publishedAt: (Date(timeIntervalSince1970: 1630163222), "2021-08-28T15:07:02.0Z"),
+            publishedAt: (Date(timeIntervalSince1970: 1630163222), "2021-08-28T15:07:02Z"),
             imageURL: URL(string: "http://another-url.com")!
         )
 
