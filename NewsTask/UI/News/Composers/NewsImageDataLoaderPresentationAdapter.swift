@@ -6,15 +6,18 @@
 //
 
 import Foundation
+import Combine
 
 final class NewsImageDataLoaderPresentationAdapter<View: NewsImageView, Image>: NewsImageCellControllerDelegate where View.Image == Image {
     private let model: NewsImage
-    private let imageLoader: NewsImageDataLoader
+    private let imageLoader: (URL) -> NewsImageDataLoader.Publisher
+    private var cancellable: Cancellable?
+
     private var task: NewsImageDataLoaderTask?
     
     var presenter: NewsImagePresenter<View, Image>?
     
-    init(model: NewsImage, imageLoader: NewsImageDataLoader) {
+    init(model: NewsImage, imageLoader: @escaping (URL) -> NewsImageDataLoader.Publisher) {
         self.model = model
         self.imageLoader = imageLoader
     }
@@ -23,18 +26,26 @@ final class NewsImageDataLoaderPresentationAdapter<View: NewsImageView, Image>: 
         presenter?.didStartLoadingImageData(for: model)
         
         let model = self.model
-        task = imageLoader.loadImageData(from: model.url) { [weak self] result in
-            switch result {
-            case let .success(data):
-                self?.presenter?.didFinishLoadingImageData(with: data, for: model)
-                
-            case let .failure(error):
-                self?.presenter?.didFinishLoadingImageData(with: error, for: model)
-            }
-        }
+        
+        cancellable = imageLoader(model.url)
+            .dispatchOnMainQueue()
+            .sink(
+                receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .finished: break
+
+                    case let .failure(error):
+                        self?.presenter?.didFinishLoadingImageData(with: error, for: model)
+
+                    }
+                }, receiveValue: { [weak self] data in
+                    self?.presenter?.didFinishLoadingImageData(with: data, for: model)
+                })
+        
     }
     
     func didCancelImageRequest() {
-        task?.cancel()
+        cancellable?.cancel()
+        cancellable = nil
     }
 }

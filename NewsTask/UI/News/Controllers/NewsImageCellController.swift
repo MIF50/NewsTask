@@ -15,9 +15,12 @@ protocol NewsImageCellControllerDelegate {
 final class NewsImageCellController: NewsImageView {
     private let delegate: NewsImageCellControllerDelegate
     private var cell: NewsImageCell?
+    let selection: () -> Void
+
     
-    init(delegate: NewsImageCellControllerDelegate) {
+    init(delegate: NewsImageCellControllerDelegate,selection:@escaping () -> Void) {
         self.delegate = delegate
+        self.selection = selection
     }
     
     func view(in tableView: UITableView) -> UITableViewCell {

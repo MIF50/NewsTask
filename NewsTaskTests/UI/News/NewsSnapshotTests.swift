@@ -12,12 +12,9 @@ class NewsSnapshotTests: XCTestCase {
     
     func test_emptyNews() {
 //        let sut = makeSUT()
-//        
+//
 //        sut.display(emptyFeed())
-//        
-//        let vc = TestVC()
-//        vc.loadViewIfNeeded()
-//        let data = vc.snapshot()
+//
 //        record(snapshot: sut.snapshot(), named: "EMPTY_NEWS")
     }
     
@@ -86,7 +83,7 @@ class NewsSnapshotTests: XCTestCase {
 private extension NewsViewController {
     func display(_ stubs: [ImageStub]) {
         let cells: [NewsImageCellController] = stubs.map { stub in
-            let cellController = NewsImageCellController(delegate: stub)
+            let cellController = NewsImageCellController(delegate: stub,selection: {})
             stub.controller = cellController
             return cellController
         }

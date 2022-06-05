@@ -8,14 +8,25 @@
 import UIKit
 import SwiftUI
 
+protocol DetailsImageLoader {
+    func loadImage()
+}
+
 class NewsDetailsViewController: UIViewController {
     
     // MARK: - View
+    
     private(set) public lazy var imageView: UIImageView = {
         let iv = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
-        iv.backgroundColor = .red
         return iv
+    }()
+    
+    private(set) public lazy var loadingIndicator: UIActivityIndicatorView = {
+        let loading = UIActivityIndicatorView(style: .large)
+        loading.translatesAutoresizingMaskIntoConstraints = false
+        loading.color = .gray
+        return loading
     }()
     
     private(set) public lazy var titleLabel: UILabel = {
@@ -49,7 +60,8 @@ class NewsDetailsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
         view.layer.cornerRadius = 10
-        view.backgroundColor = .yellow
+        view.backgroundColor = UIColor.init(red: 220, green: 220, blue: 220, alpha: 1)
+        view.dropShadow()
         return view
     }()
     
@@ -57,18 +69,35 @@ class NewsDetailsViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.textColor = .systemGray
-        label.font = .systemFont(ofSize: 16)
+        label.textColor = .darkText
+        label.font = .systemFont(ofSize: 30)
         return label
     }()
+    
+    private var loader: DetailsImageLoader?
+    private var news: NewsImage?
+    
+    convenience init(loader: DetailsImageLoader,news: NewsImage) {
+        self.init()
+        self.loader = loader
+        self.news = news
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
         setupViews()
+        loader?.loadImage()
+        display(news)
     }
     
-    
+    func display(_ news: NewsImage?) {
+        titleLabel.text = news?.title
+        timeAgoLabel.text = news?.date.timeAgoDisplay()
+        sourceLabel.text = news?.source
+        descLabel.text = news?.description
+    }
 }
 
 // MARK: - Configure UI
@@ -78,12 +107,13 @@ extension NewsDetailsViewController {
         configureImageView()
         configureInfoContainer()
         configureDescLabel()
+        configureLoadingIndicator()
     }
     
     private func configureImageView() {
         view.addSubview(imageView)
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 200)
@@ -132,7 +162,33 @@ extension NewsDetailsViewController {
             descLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -20),
         ])
     }
+    
+    private func configureLoadingIndicator() {
+        imageView.addSubview(loadingIndicator)
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            loadingIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            loadingIndicator.heightAnchor.constraint(lessThanOrEqualToConstant: 40)
+        ])
+    }
+}
 
+extension NewsDetailsViewController: DetailsLoadingView {
+    func display(_ viewModel: NewsLoadingViewModel) {
+        if viewModel.isLoading {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
+        }
+    }
+}
+
+extension NewsDetailsViewController: DetailsView {
+    func display(_ viewModel: DetailsViewModel) {
+        if let imageData = UIImage(data: viewModel.data) {
+            imageView.image = imageData
+        }
+    }
 }
 
 // MARK: - Preview
@@ -147,5 +203,19 @@ struct NewsDetailsViewControllerPreview: PreviewProvider {
         }
         
         func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
+    }
+}
+
+extension UIView {
+
+    func dropShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 2, height: 3)
+        layer.masksToBounds = false
+    
+        layer.shadowOpacity = 0.3
+        layer.shadowRadius = 3
+        layer.rasterizationScale = UIScreen.main.scale
+        layer.shouldRasterize = true
     }
 }

@@ -6,18 +6,20 @@
 //
 
 import UIKit
+import Combine
 
 public final class NewsUIComposer {
     
     private init() { }
     
     public static func composedWith(
-        newsLoader: NewsLoader,
-        imageLoader: NewsImageDataLoader
+        newsLoader: @escaping () -> AnyPublisher<[NewsImage], Error>,
+        imageLoader: @escaping (URL) -> NewsImageDataLoader.Publisher,
+        selection: @escaping (NewsImage) -> Void = { _ in }
     ) -> NewsViewController {
         
         let presentationAdapter = NewsPresentationAdapter(
-            newsLoader: MainQueueDispatchDecorator(decoratee: newsLoader)
+            newsLoader: newsLoader
         )
         let refreshController = NewsRefreshController(delegate: presentationAdapter)
         
@@ -26,7 +28,7 @@ public final class NewsUIComposer {
             title: NewsPresenter.title
         )
         
-        let newsViewAdapter = NewsViewAdapter(controller: newsController, imageLoader: MainQueueDispatchDecorator(decoratee: imageLoader))
+        let newsViewAdapter = NewsViewAdapter(controller: newsController, imageLoader: imageLoader,selection: selection)
         presentationAdapter.presenter = NewsPresenter(
             newsView: newsViewAdapter,
             loadingView: WeakRefVirtualProxy(refreshController)

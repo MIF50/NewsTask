@@ -12,7 +12,7 @@ final class NewsAcceptanceTests: XCTestCase {
     
         func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
 //            let news = launch(httpClient: .online(response))
-    
+//    
 //            XCTAssertEqual(news.numberOfRenderedNewsImageViews(), 2)
 //            XCTAssertEqual(news.renderedNewsImageData(at: 0), makeImageData())
 //            XCTAssertEqual(news.renderedNewsImageData(at: 1), makeImageData())

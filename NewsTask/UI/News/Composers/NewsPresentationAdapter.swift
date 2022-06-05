@@ -6,25 +6,34 @@
 //
 
 import Foundation
+import Combine
 
 final class NewsPresentationAdapter: NewsRefreshViewControllerDelegate {
-    private let newsLoader: NewsLoader
+    private let newsLoader: () -> AnyPublisher<[NewsImage], Error>
+    private var cancellable: Cancellable?
+
     var presenter: NewsPresenter?
     
-    init(newsLoader: NewsLoader) {
+    init(newsLoader:@escaping () -> AnyPublisher<[NewsImage], Error>) {
         self.newsLoader = newsLoader
     }
     
     func didRequestNewsRefresh() {
         presenter?.didStartLoadingNews()
         
-        newsLoader.load { [weak self] result in
-            switch result {
-            case let .success(news):
-                self?.presenter?.didFinishLoadingNews(with: news)
-            case let .failure(error):
-                self?.presenter?.didFinishLoadingNews(with: error)
-            }
-        }
+        cancellable = newsLoader()
+            .dispatchOnMainQueue()
+            .sink(
+                receiveCompletion: { [weak self] completion in
+                    switch completion {
+                    case .finished: break
+
+                    case let .failure(error):
+                        print(error)
+                        self?.presenter?.didFinishLoadingNews(with: error)
+                    }
+                }, receiveValue: { [weak self] news in
+                    self?.presenter?.didFinishLoadingNews(with: news)
+                })
     }
 }

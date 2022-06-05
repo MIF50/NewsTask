@@ -304,7 +304,7 @@ class NewsUIIntegrationTests: XCTestCase {
         line: UInt = #line
     ) -> (sut: NewsViewController, loader: LoaderSpy) {
         let loader = LoaderSpy()
-        let sut = NewsUIComposer.composedWith(newsLoader: loader,imageLoader: loader)
+        let sut = NewsUIComposer.composedWith(newsLoader: loader.loadPublisher,imageLoader: loader.loadImageDataPublisher)
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
