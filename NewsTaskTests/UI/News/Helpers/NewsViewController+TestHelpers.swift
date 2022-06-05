@@ -47,11 +47,16 @@ extension NewsViewController {
         return refreshControl?.isRefreshing == true
     }
     
+    func renderedNewsImageData(at index: Int) -> Data? {
+        return simulateNewsImageViewVisible(at: index)?.renderedImage
+    }
+    
     func numberOfRenderedNewsImageViews() -> Int {
         return tableView.numberOfRows(inSection: newsImagesSection)
     }
     
     func newsImageView(at row: Int) -> UITableViewCell? {
+        guard numberOfRenderedNewsImageViews() > row else { return nil }
         let ds = tableView.dataSource
         let index = IndexPath(row: row, section: newsImagesSection)
         return ds?.tableView(tableView, cellForRowAt: index)

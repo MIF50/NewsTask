@@ -14,7 +14,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=38452b3dbdc64b5aba76dc73c70fe3d1
     // https://newsapi.org/v2/everything?domains=wsj.com&apiKey=38452b3dbdc64b5aba76dc73c70fe3d1
     private lazy var remoteURL: URL = URL(string: "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=38452b3dbdc64b5aba76dc73c70fe3d1")!
-    
+    private lazy var httpClient: HTTPClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
+
+    convenience init(httpClient: HTTPClient) {
+        self.init()
+        self.httpClient = httpClient
+    }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -24,9 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func configureWindow() {
-        let remoteClient = URLSessionHTTPClient(session: URLSession(configuration: .ephemeral))
-        let remoteNewsLoader = RemoteNewsLoader(url: remoteURL, client: remoteClient)
-        let remoteImageLoader = RemoteNewsImageDataLoader(client: remoteClient)
+        let remoteNewsLoader = RemoteNewsLoader(url: remoteURL, client: httpClient)
+        let remoteImageLoader = RemoteNewsImageDataLoader(client: httpClient)
         
         let newsViewController = NewsUIComposer.composedWith(newsLoader: remoteNewsLoader,
                                                              imageLoader: remoteImageLoader)
