@@ -29,7 +29,6 @@ public final class NewsViewController: UITableViewController, UITableViewDataSou
     }
     
     private func configureTableView() {
-        tableView.allowsSelection = false
         tableView.register(cell: NewsImageCell.self)
         tableView.rowHeight = 100
         tableView.prefetchDataSource = self
