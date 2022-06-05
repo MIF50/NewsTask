@@ -230,6 +230,7 @@
 		B57327952849371A0098BA47 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				B5C2F9B0284D05F8005D44BA /* Details */,
 				B573279C2849EBB00098BA47 /* News */,
 			);
 			path = UI;
@@ -252,7 +253,6 @@
 				B5732796284937270098BA47 /* NewsViewController.swift */,
 				B57327B82849F33B0098BA47 /* NewsRefreshController.swift */,
 				B57327BA2849F5DF0098BA47 /* NewsImageCellController.swift */,
-				B573280F284BE6450098BA47 /* NewsDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -399,6 +399,14 @@
 				B57327912849369C0098BA47 /* NewsLoader.swift */,
 			);
 			path = "News Loader";
+			sourceTree = "<group>";
+		};
+		B5C2F9B0284D05F8005D44BA /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				B573280F284BE6450098BA47 /* NewsDetailsViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
