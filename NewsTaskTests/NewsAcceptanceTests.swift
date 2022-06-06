@@ -12,7 +12,7 @@ final class NewsAcceptanceTests: XCTestCase {
     
         func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
 //            let news = launch(httpClient: .online(response))
-//    
+//
 //            XCTAssertEqual(news.numberOfRenderedNewsImageViews(), 2)
 //            XCTAssertEqual(news.renderedNewsImageData(at: 0), makeImageData())
 //            XCTAssertEqual(news.renderedNewsImageData(at: 1), makeImageData())
@@ -44,10 +44,8 @@ final class NewsAcceptanceTests: XCTestCase {
             switch url.path {
             case "/image-1", "/image-2":
                 return makeImageData()
-            case "newsapi.org/v2":
-                return makeNewsData()
             default:
-                return Data()
+                return makeNewsData()
             }
         }
     
@@ -59,7 +57,7 @@ final class NewsAcceptanceTests: XCTestCase {
                     ],
                     "title": "Gay Travelers Gather",
                     "description":"Gay Travelers Gather at DISNEY",
-                    "publishedAt":"2022-06-04T14:49:50Z",
+                    "publishedAt":"2021-08-28T15:07:02Z",
                     "urlToImage": "http://news.com/image-1"
                 ],
                 [
