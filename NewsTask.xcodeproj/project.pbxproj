@@ -359,9 +359,9 @@
 			isa = PBXGroup;
 			children = (
 				B57327D9284AC6110098BA47 /* Helpers */,
-				B5732803284B77820098BA47 /* URLSessionHTTPClientTests.swift */,
-				B585676D284E87BA00064A2D /* NewsItemsMapperTests.swift */,
-				B585676F284E8AD700064A2D /* NewsImageDataMapperTests.swift */,
+				B5856773284E8BB500064A2D /* Shared Infra */,
+				B5856772284E8BA000064A2D /* News */,
+				B5856771284E8B8D00064A2D /* Image */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -405,6 +405,30 @@
 			isa = PBXGroup;
 			children = (
 				B5732801284B75640098BA47 /* URLSessionHTTPClient.swift */,
+			);
+			path = "Shared Infra";
+			sourceTree = "<group>";
+		};
+		B5856771284E8B8D00064A2D /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				B585676F284E8AD700064A2D /* NewsImageDataMapperTests.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		B5856772284E8BA000064A2D /* News */ = {
+			isa = PBXGroup;
+			children = (
+				B585676D284E87BA00064A2D /* NewsItemsMapperTests.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		B5856773284E8BB500064A2D /* Shared Infra */ = {
+			isa = PBXGroup;
+			children = (
+				B5732803284B77820098BA47 /* URLSessionHTTPClientTests.swift */,
 			);
 			path = "Shared Infra";
 			sourceTree = "<group>";
