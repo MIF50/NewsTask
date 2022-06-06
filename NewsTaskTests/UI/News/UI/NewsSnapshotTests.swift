@@ -15,7 +15,9 @@ class NewsSnapshotTests: XCTestCase {
 
         sut.display(emptyFeed())
 
-        assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "EMPTY_NEWS")
+        assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "EMPTY_NEWS_Light")
+        assert(snapshot: sut.snapshot(for: .iPhone13(style: .dark)), named: "EMPTY_NEWS_Dark")
+
     }
     
     func test_newsWithContent() {
@@ -23,7 +25,8 @@ class NewsSnapshotTests: XCTestCase {
 
         sut.display(feedWithContent())
 
-        assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "NEWS_WITH_CONTENT")
+        assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "NEWS_WITH_CONTENT_Light")
+        assert(snapshot: sut.snapshot(for: .iPhone13(style: .dark)), named: "NEWS_WITH_CONTENT_Dark")
     }
     
     // MARK: - Helpers
