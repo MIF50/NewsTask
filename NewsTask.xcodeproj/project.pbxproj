@@ -60,6 +60,9 @@
 		B573281C284C4EE20098BA47 /* NewsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B573281B284C4EE20098BA47 /* NewsSnapshotTests.swift */; };
 		B585676E284E87BA00064A2D /* NewsItemsMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585676D284E87BA00064A2D /* NewsItemsMapperTests.swift */; };
 		B5856770284E8AD700064A2D /* NewsImageDataMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585676F284E8AD700064A2D /* NewsImageDataMapperTests.swift */; };
+		B5856775284E95B500064A2D /* XCTestCase+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5856774284E95B500064A2D /* XCTestCase+Snapshot.swift */; };
+		B5856777284E962700064A2D /* UIViewController+Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5856776284E962700064A2D /* UIViewController+Snapshot.swift */; };
+		B585677A284E96E600064A2D /* snapshots in Resources */ = {isa = PBXBuildFile; fileRef = B5856779284E96E600064A2D /* snapshots */; };
 		B5C2F9B2284D0645005D44BA /* CombineHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2F9B1284D0645005D44BA /* CombineHelpers.swift */; };
 		B5C2F9B4284D1656005D44BA /* DetailsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2F9B3284D1656005D44BA /* DetailsUIComposer.swift */; };
 		B5C2F9BC284D4A3C005D44BA /* NewsImageDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C2F9BB284D4A3C005D44BA /* NewsImageDataMapper.swift */; };
@@ -136,6 +139,9 @@
 		B573281B284C4EE20098BA47 /* NewsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsSnapshotTests.swift; sourceTree = "<group>"; };
 		B585676D284E87BA00064A2D /* NewsItemsMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemsMapperTests.swift; sourceTree = "<group>"; };
 		B585676F284E8AD700064A2D /* NewsImageDataMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageDataMapperTests.swift; sourceTree = "<group>"; };
+		B5856774284E95B500064A2D /* XCTestCase+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Snapshot.swift"; sourceTree = "<group>"; };
+		B5856776284E962700064A2D /* UIViewController+Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Snapshot.swift"; sourceTree = "<group>"; };
+		B5856779284E96E600064A2D /* snapshots */ = {isa = PBXFileReference; lastKnownFileType = folder; path = snapshots; sourceTree = "<group>"; };
 		B5C2F9B1284D0645005D44BA /* CombineHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineHelpers.swift; sourceTree = "<group>"; };
 		B5C2F9B3284D1656005D44BA /* DetailsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsUIComposer.swift; sourceTree = "<group>"; };
 		B5C2F9BB284D4A3C005D44BA /* NewsImageDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsImageDataMapper.swift; sourceTree = "<group>"; };
@@ -198,8 +204,8 @@
 		B573276F284911C80098BA47 /* NewsTaskTests */ = {
 			isa = PBXGroup;
 			children = (
-				B57327D3284AC58D0098BA47 /* News Feature */,
 				B573278D284928560098BA47 /* Helper */,
+				B57327D3284AC58D0098BA47 /* News Feature */,
 				B57327B52849EFB00098BA47 /* UI */,
 				B5732811284BF1B90098BA47 /* SceneDelegateTests.swift */,
 				B5732817284C4B5A0098BA47 /* NewsAcceptanceTests.swift */,
@@ -290,10 +296,10 @@
 		B57327B62849EFBD0098BA47 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				B5856778284E96BB00064A2D /* UI */,
 				B57327FC284B68D70098BA47 /* Presentation */,
 				B57327B72849EFCF0098BA47 /* Helpers */,
 				B573278B2849227D0098BA47 /* NewsUIIntegrationTests.swift */,
-				B573281B284C4EE20098BA47 /* NewsSnapshotTests.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -306,6 +312,8 @@
 				B57327AF2849EED70098BA47 /* NewsViewController+LoaderSpy.swift */,
 				B57327B12849EF240098BA47 /* NewsViewController+Assertions.swift */,
 				B57327E4284B41460098BA47 /* NewsViewControllerTests+localization.swift */,
+				B5856774284E95B500064A2D /* XCTestCase+Snapshot.swift */,
+				B5856776284E962700064A2D /* UIViewController+Snapshot.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -431,6 +439,15 @@
 				B5732803284B77820098BA47 /* URLSessionHTTPClientTests.swift */,
 			);
 			path = "Shared Infra";
+			sourceTree = "<group>";
+		};
+		B5856778284E96BB00064A2D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B5856779284E96E600064A2D /* snapshots */,
+				B573281B284C4EE20098BA47 /* NewsSnapshotTests.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		B5C2F9B0284D05F8005D44BA /* Details */ = {
@@ -578,6 +595,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B585677A284E96E600064A2D /* snapshots in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +655,7 @@
 				B57327FE284B69080098BA47 /* NewsPresenterTests.swift in Sources */,
 				B573278F284928640098BA47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 				B57327E5284B41460098BA47 /* NewsViewControllerTests+localization.swift in Sources */,
+				B5856777284E962700064A2D /* UIViewController+Snapshot.swift in Sources */,
 				B585676E284E87BA00064A2D /* NewsItemsMapperTests.swift in Sources */,
 				B57327A92849ED390098BA47 /* UIControl+TestHelpers.swift in Sources */,
 				B57327B22849EF240098BA47 /* NewsViewController+Assertions.swift in Sources */,
@@ -644,6 +663,7 @@
 				B5732806284B77AE0098BA47 /* URLProtocolStub.swift in Sources */,
 				B5732808284B78160098BA47 /* SharedTestHelpers.swift in Sources */,
 				B5732818284C4B5A0098BA47 /* NewsAcceptanceTests.swift in Sources */,
+				B5856775284E95B500064A2D /* XCTestCase+Snapshot.swift in Sources */,
 				B57327B02849EED70098BA47 /* NewsViewController+LoaderSpy.swift in Sources */,
 				B57327A32849EC6E0098BA47 /* UIImage+TestHelpers.swift in Sources */,
 				B57327A52849ECB60098BA47 /* UIRefreshController+TestHelpers.swift in Sources */,

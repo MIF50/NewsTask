@@ -11,19 +11,19 @@ import XCTest
 class NewsSnapshotTests: XCTestCase {
     
     func test_emptyNews() {
-//        let sut = makeSUT()
-//
-//        sut.display(emptyFeed())
-//
-//        record(snapshot: sut.snapshot(), named: "EMPTY_NEWS")
+        let sut = makeSUT()
+
+        sut.display(emptyFeed())
+
+        assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "EMPTY_NEWS")
     }
     
     func test_newsWithContent() {
-//        let sut = makeSUT()
-//
-//        sut.display(feedWithContent())
-//
-//        record(snapshot: sut.snapshot(), named: "NEWS_WITH_CONTENT")
+        let sut = makeSUT()
+
+        sut.display(feedWithContent())
+
+        assert(snapshot: sut.snapshot(for: .iPhone13(style: .light)), named: "NEWS_WITH_CONTENT")
     }
     
     // MARK: - Helpers
@@ -37,43 +37,25 @@ class NewsSnapshotTests: XCTestCase {
         return []
     }
     
-    private func record(snapshot: UIImage, named name: String, file: StaticString = #file, line: UInt = #line) {
-        guard let snapshotData = snapshot.pngData() else {
-            XCTFail("Failed to generate PNG data representation from snapshot", file: file, line: line)
-            return
-        }
-        
-        let snapshotURL = URL(fileURLWithPath: String(describing: file))
-            .deletingLastPathComponent()
-            .appendingPathComponent("snapshots")
-            .appendingPathComponent("\(name).png")
-        
-        do {
-            try FileManager.default.createDirectory(
-                at: snapshotURL.deletingLastPathComponent(),
-                withIntermediateDirectories: true
-            )
-            
-            try snapshotData.write(to: snapshotURL)
-        } catch {
-            XCTFail("Failed to record snapshot with error: \(error)", file: file, line: line)
-        }
-    }
-    
-    
     private func feedWithContent() -> [ImageStub] {
             return [
                 ImageStub(
-                    title: "he East Side Gallery is an open-air gallery in Berlin. It consists of a series of murals painted directly on a 1,316 m long remnant of the Berlin Wal",
-                    source: "BBC",
+                    title: "Musk threatens to drop Twitter deal if fake-account data not provided - Reuters",
+                    source: "Reuters",
                     timeAgo: "1 hour ago",
                     image:UIImage.make(withColor: .red)
                 ),
                 ImageStub(
-                    title: "Garth Pier is a Grade II listed structure in Bangor, Gwynedd, North Wales.",
-                    source: "BBC",
+                    title: "Apple CarPlay is expanding with new features that can integrate deeper into the car - The Verge",
+                    source: "The Verge",
                     timeAgo: "1 minute ago",
                     image: UIImage.make(withColor: .green)
+                ),
+                ImageStub(
+                    title: "Apple announces its next-gen M2 chip",
+                    source: "Ars Technica",
+                    timeAgo: "1 second ago",
+                    image: UIImage.make(withColor: .cyan)
                 )
             ]
         }
@@ -112,13 +94,4 @@ private class ImageStub: NewsImageCellControllerDelegate {
     }
 
     func didCancelImageRequest() {}
-}
-
-extension UIViewController {
-    func snapshot() -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: view.bounds)
-        return renderer.image { action in
-            view.layer.render(in: action.cgContext)
-        }
-    }
 }
