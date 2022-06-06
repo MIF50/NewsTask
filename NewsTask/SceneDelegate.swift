@@ -46,7 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let url = URL(string: "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=38452b3dbdc64b5aba76dc73c70fe3d1")!
         return httpClient
             .getPublisher(url: url)
-            .tryMap(NewsImageMapper.map)
+            .tryMap(NewsItemMapper.map)
             .eraseToAnyPublisher()
     }
 

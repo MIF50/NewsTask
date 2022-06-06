@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum NewsImageMapper {
+public enum NewsItemMapper {
     private struct Root: Decodable {
         let articles: [Item]
+        
         var news: [NewsImage] {
             return articles.map { $0.item }
         }
@@ -35,31 +36,23 @@ enum NewsImageMapper {
             let name: String
         }
     }
-
-    static func map(_ data: Data, from response: HTTPURLResponse) -> NewsLoader.Result {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Shourt)
-
-        guard response.isOK,
-              let root = try? decoder.decode(Root.self, from: data)
-        else {
-            return .failure(RemoteNewsLoader.Error.invalidData)
-        }
-        return .success(root.news)
+    
+    public enum Error: Swift.Error {
+        case invalidData
     }
     
     public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [NewsImage] {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Shourt)
         guard response.isOK, let root = try? decoder.decode(Root.self, from: data) else {
-            throw RemoteNewsLoader.Error.invalidData
+            throw Error.invalidData
         }
 
         return root.news
     }
 }
 
-extension DateFormatter {
+private extension DateFormatter {
     static let iso8601Full: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
