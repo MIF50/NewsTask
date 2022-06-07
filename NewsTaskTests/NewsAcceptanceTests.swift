@@ -10,6 +10,7 @@ import XCTest
 
 final class NewsAcceptanceTests: XCTestCase {
     
+        // this testing is not passed 
         func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
 //            let news = launch(httpClient: .online(response))
 //
